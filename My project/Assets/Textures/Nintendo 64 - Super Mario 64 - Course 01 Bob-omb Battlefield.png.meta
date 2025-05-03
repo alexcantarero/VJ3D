@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: d98a386b0d95cc14c88831dfee5ba14c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febfe8f0a81ea4a4d8096eb9d289b75c
+      internalID: 1706975253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fe31e836c71f241ad5d078dbf08430
+      internalID: 1246342030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999ef0703fcbd09409130af4cda31012
+      internalID: -1000525814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607d59b49d2ba3c42a06abefe13c9290
+      internalID: 1668042603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_4
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29bb8c5ce26334498f225929b4fae9f
+      internalID: 356921647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_5
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 195
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f048810aff5154385b5b74b42b8d67
+      internalID: 129656036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_6
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 227
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef527cac5e70a1f49b3721c16bd9ddd3
+      internalID: -1464366800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_7
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 161
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4035e362ab0a640a766dca36613a0c
+      internalID: 498599884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 161
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71afd819cda23e24e9418ce9ba6ed9e4
+      internalID: -807324358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_9
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 193
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a1b00bc0a623646891f45db51bf611
+      internalID: -1116788541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 193
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e02f86db67ece488473b3e51c5ab58
+      internalID: -940525937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_11
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 193
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d9d882d1ff84b418832d50a4ff5fd5
+      internalID: -1023583899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_12
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 193
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d80b5b3e9bc484b9b8ecd3c7cfdc59
+      internalID: 737677006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_13
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 175
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd7b3844d10c44438451e2c0fdcb427
+      internalID: -284349597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_14
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 159
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcf653e63f925941acc071e1dd7bd45
+      internalID: 362369635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_15
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 159
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2545c19c598a2040a272b90b98c86e5
+      internalID: -1786763248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_16
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 161
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e211e0ddc3230804e8413969ef7719f6
+      internalID: 393853954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_17
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 159
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ceed5cc61d8bd74781b4cca98b16a7e
+      internalID: -402972449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 127
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c31efe23a72b0042aa2bd4ffa0dcf56
+      internalID: -859677455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_19
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 127
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f635b66e6dc71040bf64725e0058920
+      internalID: 1570125641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_20
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 157
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a860edfeae7eb44b0354fad067ff57
+      internalID: -1261918747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_21
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 127
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8c7a814a03c2c4e8dd6d24bcbee0e0
+      internalID: 1056500598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_22
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 123
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bda4ad8c0b5b7641a57e711635309c5
+      internalID: 2017381399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_23
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 125
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dfe23a5ae9485c468c9df597f74c137
+      internalID: -1546385159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_24
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 125
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384c5ddff466976408c73b380a24a0f1
+      internalID: -1156281720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_25
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 125
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916d82bb348c4884b92c0a6280f48a71
+      internalID: 1926928345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_26
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 93
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c97a4003ac9be479b37f2a6f6537f0
+      internalID: 1711196216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_27
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 93
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da352876afc53d542bd4a11b182ec2de
+      internalID: 2047391968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_28
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 6
+        width: 220
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcf027bfe1ae17448319b0e98ee8162
+      internalID: 835924016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_0: 1706975253
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_1: 1246342030
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_10: -940525937
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_11: -1023583899
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_12: 737677006
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_13: -284349597
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_14: 362369635
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_15: -1786763248
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_16: 393853954
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_17: -402972449
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_18: -859677455
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_19: 1570125641
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_2: -1000525814
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_20: -1261918747
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_21: 1056500598
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_22: 2017381399
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_23: -1546385159
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_24: -1156281720
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_25: 1926928345
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_26: 1711196216
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_27: 2047391968
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_28: 835924016
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_3: 1668042603
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_4: 356921647
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_5: 129656036
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_6: -1464366800
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_7: 498599884
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_8: -807324358
+      Nintendo 64 - Super Mario 64 - Course 01 Bob-omb Battlefield_9: -1116788541
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
