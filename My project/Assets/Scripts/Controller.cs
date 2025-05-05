@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public float speed = 50f;  // Velocidad inicial
-    public float rotatingSpeed = 100f; // Velocidad de rotación
-    public string paddleTag = "Paddle"; // Tag para identificar la paleta
-    public float maxBounceAngle = 75f; // Ángulo máximo de rebote en grados
+    public float speed = 50f;
+    public float rotatingSpeed = 100f;
+    public string paddleTag = "Paddle";
+    public float maxBounceAngle = 75f; //En grados
 
     private Rigidbody rb;
 
@@ -15,31 +15,30 @@ public class Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        float randomX = Random.Range(-1f, 1f);
+        float randomX = Random.Range(-1f, 1f); //Posición de movimiento inicial
 
-        Vector3 direction = new Vector3(randomX, 0, 1).normalized; // Mueve en diagonal XZ
+        Vector3 direction = new Vector3(randomX, 0, 1).normalized;
         rb.velocity = direction * speed;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(paddleTag))
+        if (collision.gameObject.CompareTag(paddleTag)) //Si choca contra la paleta
         {
-            // Colisión con la paleta - ángulo variable
             CalculatePaddleBounce(collision);
         }
-        else
+        else //Contra cualquier otra cosa
         {
-            // Colisión normal con otras superficies
-            Vector3 incomingVelocity = rb.velocity;
+            
+            Vector3 incomingVelocity = rb.velocity; //Velocidad con la que colisiona
             Vector3 normal = collision.contacts[0].normal;
-            Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal);
+            Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal); //Reflejo de la velocidad
 
             // Mantener la velocidad constante
             rb.velocity = reflectedVelocity.normalized * speed;
         }
     }
-
+    //REVISAR------------------------------------------------------
     void CalculatePaddleBounce(Collision collision)
     {
         // Obtiene el punto de contacto y el centro de la paleta
@@ -76,17 +75,16 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Rotación visual (si quieres reactivarla)
+        //Rotación de la concha sobre sí misma
         transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime);
 
-        // Forzar que la velocidad sea siempre exactamente "speed"
-        if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
+        // Velocidad constante
+        if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f) // Si la velocidad es mayor que speed
         {
-            rb.velocity = rb.velocity.normalized * speed;
+            rb.velocity = rb.velocity.normalized * speed; //Recalculamos la velocidad
         }
     }
 
-    // FixedUpdate es mejor para físicas
     void FixedUpdate()
     {
         // Asegurar que la velocidad es exactamente la que queremos
