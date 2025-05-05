@@ -29,15 +29,22 @@ public class FollowMouseX : MonoBehaviour
 
     void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.up, new Vector3(0, yPosition, 0));
+        float moveSpeed = 20f; // Puedes ajustar la velocidad según necesites
+        float moveInput = 0f;
 
-        if (plane.Raycast(ray, out float distance))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            Vector3 hitPoint = ray.GetPoint(distance);
-            float clampedX = Mathf.Clamp(hitPoint.x, minXPosition, maxXPosition);
-
-            transform.position = new Vector3(clampedX, yPosition, zPosition);
+            moveInput = -1f;
         }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            moveInput = 1f;
+        }
+
+        float newX = transform.position.x + moveInput * moveSpeed * Time.deltaTime;
+        float clampedX = Mathf.Clamp(newX, minXPosition, maxXPosition);
+
+        transform.position = new Vector3(clampedX, yPosition, zPosition);
     }
+
 }
