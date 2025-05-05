@@ -14,9 +14,22 @@ public class BallController : MonoBehaviour
         rb.velocity = direction * speed;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("holaquetal");
+        
+        Vector3 incomingVelocity = rb.velocity;
+        Vector3 normal = collision.contacts[0].normal;
+        Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal);
+
+        rb.velocity = reflectedVelocity.normalized * speed;
+    }
+    
+
     // Update is called once per frame
     void Update()
     {
+        
         
     }
 
