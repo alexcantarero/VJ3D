@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rotatingSpeed: 500
+  rotatingSpeed: 100
   paddleTag: Paddle
   maxBounceAngle: 75
 --- !u!54 &448280945
@@ -2098,7 +2098,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &448280946
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2106,7 +2106,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448280940}
-  m_Material: {fileID: 13400000, guid: 8d3d479e1ce2be1428f7cda1aa71cc32, type: 2}
+  m_Material: {fileID: 13400000, guid: dffbc08517fa11f4fa156792e10743ad, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
