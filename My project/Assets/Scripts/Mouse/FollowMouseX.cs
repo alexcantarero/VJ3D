@@ -8,8 +8,8 @@ public class FollowMouseX : MonoBehaviour
 
     private float yPosition;
     private float zPosition;
-    private float minXPosition = -11.13f;
-    private float maxXPosition = 10f;
+    private float minXPosition = -19.42f;
+    private float maxXPosition = 18.42f;
 
     void Start()
     {
