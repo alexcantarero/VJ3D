@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowMouseX : MonoBehaviour
+public class PaddleController : MonoBehaviour
 {
     public Camera mainCamera;
 
     private float yPosition;
     private float zPosition;
-    private float minXPosition = -19.97f;
-    private float maxXPosition = 18.74f;
 
-
+    private float minXPosition = -19.42f;
+    private float maxXPosition = 18.42f;
 
     void Start()
     {
