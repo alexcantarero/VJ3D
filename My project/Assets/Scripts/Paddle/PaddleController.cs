@@ -23,14 +23,13 @@ public class PaddleController : MonoBehaviour
             }
         }
 
-        // Guardar la posición Y y Z del objeto actual
         yPosition = transform.position.y;
         zPosition = transform.position.z;
     }
 
     void Update()
     {
-        float moveSpeed = 20f; // Puedes ajustar la velocidad según necesites
+        float moveSpeed = 20f; 
         float moveInput = 0f;
 
         if (Input.GetKey(KeyCode.LeftArrow))
