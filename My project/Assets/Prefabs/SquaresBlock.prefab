@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 1420869481217109268}
   - component: {fileID: 6223522281556630154}
   - component: {fileID: 3819658090992586198}
-  - component: {fileID: 5523795183448724282}
+  - component: {fileID: 4841667005078357156}
   - component: {fileID: -5500621210142324473}
   m_Layer: 0
-  m_Name: DirtBlock
+  m_Name: SquaresBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db5265ac5ecf5b14595ce204447906f2, type: 2}
+  - {fileID: 2100000, guid: f55c0166cb7d37347a8c852f5934469b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &5523795183448724282
+--- !u!114 &4841667005078357156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
