@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public float speed = 125f;
+    public float speed = 25f;
     public float rotatingSpeed = 100f;
     public string paddleTag = "Paddle";
     public float maxBounceAngle = 75f; //En grados

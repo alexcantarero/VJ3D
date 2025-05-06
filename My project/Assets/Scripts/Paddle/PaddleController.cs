@@ -9,8 +9,8 @@ public class PaddleController : MonoBehaviour
     private float yPosition;
     private float zPosition;
 
-    private float minXPosition = -19.42f;
-    private float maxXPosition = 18.42f;
+    private float minXPosition = -15.42f;
+    private float maxXPosition = 19f;
 
     void Start()
     {

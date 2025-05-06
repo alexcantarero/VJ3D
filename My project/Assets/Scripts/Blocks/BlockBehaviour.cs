@@ -14,7 +14,7 @@ public class BlockBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shell"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f); //Destrucción con delay
         }
     }
 

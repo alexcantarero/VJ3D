@@ -1,0 +1,88 @@
+lambert29_v
+===========
+  Textures:
+    - KillerBody
+    - Env2
+        Offset: 0.0830078125, 0.1220703125
+        Scale: 1.4892578125, 0.703125
+        Rotation: -0.32230597857600635
+
+  Ambient Colors:
+    - 64, 64, 64, 128
+
+  Color Registers:
+    - -5, -5, -5, -85
+    - 1023, 1023, 1023, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB)), then add (-5, -5, -5)
+         A = (lerp from (tex #1 A) to 32 using (vertex A)), then add -85, multiply by 2
+    2: RGB = (lerp from (tex #2 RGB) to (vertex RGB) using (prev. A)), then add (prev. RGB)
+         A = (64 * (vertex A)), then add -85, multiply by 2
+    3: RGB = ((vertex RGB) * (prev. RGB)), multiply by 2
+         A = (prev. A)
+
+
+
+lambert30_v
+===========
+  Textures:
+    - killer_eye_around
+
+  Ambient Colors:
+    - 64, 64, 64, 128
+
+  Constant Colors:
+    - 255, 255, 255, 9
+
+  Color Registers:
+    - 0, 0, 0, -1024
+    - 0, 0, 0, 105
+
+  Steps:
+    1: RGB = (vertex RGB)
+         A = (lerp from (tex #1 A) to 105 using (vertex A)), then add -1024, multiply by 2
+    2: RGB = ((vertex RGB) * (prev. A)), then add (prev. RGB)
+         A = 255
+    3: RGB = ((tex #1 RGB) * (vertex RGB)), then add (prev. RGB)
+         A = (prev. A)
+
+
+
+lambert29_v(2)
+==============
+  Textures:
+    - KillerBody
+
+  Ambient Colors:
+    - 64, 64, 64, 128
+
+  Color Registers:
+    - 0, 0, 0, -69
+    - 1023, 1023, 1023, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB))
+         A = (lerp from (tex #1 A) to 32 using (vertex A)), then add -69, multiply by 2
+    2: RGB = ((vertex RGB) * (prev. A)), then add (prev. RGB), multiply by 2
+         A = (64 * (vertex A)), then add -69, multiply by 2
+
+
+
+lambert29_v(3)
+==============
+  Textures:
+    - KillerBody
+
+  Ambient Colors:
+    - 64, 64, 64, 128
+
+  Color Registers:
+    - 0, 0, 0, -69
+    - 1023, 1023, 1023, 255
+
+  Steps:
+    1: RGB = ((tex #1 RGB) * (vertex RGB))
+         A = (lerp from (tex #1 A) to 32 using (vertex A)), then add -69, multiply by 2
+    2: RGB = ((vertex RGB) * (prev. A)), then add (prev. RGB), multiply by 2
+         A = (64 * (vertex A)), then add -69, multiply by 2
