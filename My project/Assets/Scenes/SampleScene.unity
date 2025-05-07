@@ -4087,11 +4087,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &408467633 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4347801191384321026, guid: 0493ac2cac37d734cb41546bdffa47c7, type: 3}
-  m_PrefabInstance: {fileID: 1865214636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &411108860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
@@ -12767,11 +12762,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0dcb16a539202944997e0a23c4102f4, type: 3}
---- !u!4 &1306831596 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2632512399680164421, guid: 0493ac2cac37d734cb41546bdffa47c7, type: 3}
-  m_PrefabInstance: {fileID: 1865214636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1307651699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
@@ -19220,8 +19210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
-  leftFoot: {fileID: 1306831596}
-  rightFoot: {fileID: 408467633}
 --- !u!4 &1972571167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
