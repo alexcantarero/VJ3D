@@ -6,7 +6,7 @@ public class PaddleController : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject shellPrefab; // Prefab de la concha
-    //public GameObject movingShell; // Prefab de la concha
+    public GameObject invisibleWall; // Pared invisible
 
     private float yPosition;
     private float zPosition;
@@ -14,6 +14,8 @@ public class PaddleController : MonoBehaviour
     private float minXPosition = -16.42f;
     private float maxXPosition = 20f;
 
+    private bool isGodModeActive = false; // Variable que controla el God Mode
+    private Collider paddleCollider; // Colisionador de la paleta
 
     void Start()
     {
@@ -28,7 +30,16 @@ public class PaddleController : MonoBehaviour
 
         yPosition = transform.position.y;
         zPosition = transform.position.z;
+
+        paddleCollider = GetComponent<BoxCollider>(); // Obtener el colisionador de la paleta
+
+        // Desactivar la pared invisible al principio
+        if (invisibleWall != null)
+        {
+            invisibleWall.SetActive(false);
+        }
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Powerup")
@@ -40,9 +51,8 @@ public class PaddleController : MonoBehaviour
     }
 
     void SpawnTwoShells(GameObject shell)
-    { 
-
-        if(shellPrefab == null)
+    {
+        if (shellPrefab == null)
         {
             Debug.LogError("Shell prefab no se ha asignado.");
             return;
@@ -51,12 +61,60 @@ public class PaddleController : MonoBehaviour
         Vector3 shellPosition = shellPrefab.transform.position; //Posición de la concha
         Instantiate(shellPrefab, shellPosition, Quaternion.identity);
         Instantiate(shellPrefab, shellPosition, Quaternion.identity);
-
     }
 
     void Update()
     {
-        float moveSpeed = 30f; 
+        // Toggle God Mode cuando se presiona la tecla 'G'
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            isGodModeActive = !isGodModeActive; // Alternar el estado del God Mode
+            ToggleGodMode(isGodModeActive);
+        }
+
+        if (isGodModeActive)
+            Debug.Log("God Mode activado");
+        else Debug.Log("God Mode incativo");
+
+        MovePaddle();
+    }
+
+    void ToggleGodMode(bool isActive)
+    {
+        if (isActive)
+        {
+
+            // Desactivar la colisión de la paleta
+            if (paddleCollider != null)
+            {
+                paddleCollider.enabled = false; // Desactivar la colisión de la paleta
+            }
+
+            // Activar la pared invisible
+            if (invisibleWall != null)
+            {
+                invisibleWall.SetActive(true); // Activar la pared invisible para que las pelotas colisionen con ella
+            }
+        }
+        else
+        {
+            // Restaurar las colisiones
+            if (paddleCollider != null)
+            {
+                paddleCollider.enabled = true; // Activar la colisión
+            }
+
+            // Desactivar la pared invisible
+            if (invisibleWall != null)
+            {
+                invisibleWall.SetActive(false); // Desactivar la pared invisible
+            }
+        }
+    }
+
+    void MovePaddle()
+    {
+        float moveSpeed = 30f;
         float moveInput = 0f;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -73,5 +131,4 @@ public class PaddleController : MonoBehaviour
 
         transform.position = new Vector3(clampedX, yPosition, zPosition);
     }
-
 }

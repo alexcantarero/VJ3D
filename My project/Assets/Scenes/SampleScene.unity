@@ -725,6 +725,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0dcb16a539202944997e0a23c4102f4, type: 3}
+--- !u!1 &50194257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50194258}
+  - component: {fileID: 50194259}
+  m_Layer: 0
+  m_Name: invisibleWall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50194258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50194257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -18.84, y: 0, z: -43.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591945414}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &50194259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50194257}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0334699, y: 2.1474557, z: 31.161589}
+  m_Center: {x: -15.199734, y: 3.2901723, z: -11.503472}
 --- !u!1001 &53387724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5421,6 +5474,7 @@ Transform:
   - {fileID: 200832869}
   - {fileID: 1591845398}
   - {fileID: 2052973223}
+  - {fileID: 50194258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &592543113
@@ -9416,11 +9470,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1263550084}
-  distance: 55
+  startDistance: 80
+  endDistance: 60
   xSpeed: 120
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
+  autoRotationSpeed: 30
+  autoZoomSpeed: 2
 --- !u!1001 &967557456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19062,6 +19119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
   shellPrefab: {fileID: 6613718076741339229, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
+  invisibleWall: {fileID: 50194257}
 --- !u!65 &1971058147
 BoxCollider:
   m_ObjectHideFlags: 0
