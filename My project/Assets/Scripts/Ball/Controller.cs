@@ -7,7 +7,7 @@ public class Controller : MonoBehaviour
     public float speed = 25f;
     public float rotatingSpeed = 100f;
     public string paddleTag = "Paddle";
-    public float maxBounceAngle = 75f; //En grados
+    public float maxBounceAngle = 50f; //En grados
 
     private Rigidbody rb;
 
@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(paddleTag)) 
         {
-            //CalculatePaddleBounce(collision);
+            CalculatePaddleBounce(collision);
         }
         else 
         {

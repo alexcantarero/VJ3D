@@ -31,7 +31,7 @@ public class PaddleController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "TripleShroomPowerup")
+        if (other.gameObject.tag == "Powerup")
         {
             // Triplicar las conchas
             SpawnTwoShells(other.gameObject);
