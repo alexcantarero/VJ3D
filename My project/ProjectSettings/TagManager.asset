@@ -6,15 +6,18 @@ TagManager:
   tags:
   - Paddle
   - Shell
-  - Powerup
+  - FireFlower
+  - TripleShroom
+  - RedShell
+  - Block
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bloque
   - Water
   - UI
-  - 
+  - Shell
   - 
   - 
   - 

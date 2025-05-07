@@ -6,7 +6,7 @@ public class PaddleController : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject shellPrefab; // Prefab de la concha
-    //public GameObject movingShell; // Prefab de la concha
+    
 
     private float yPosition;
     private float zPosition;
@@ -31,11 +31,25 @@ public class PaddleController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Powerup")
+        if (other.gameObject.tag == "TripleShroom")
         {
-            // Triplicar las conchas
+            Debug.Log("TripleShroom");
             SpawnTwoShells(other.gameObject);
-            Destroy(other.gameObject); // Destruir el powerup
+        }
+        else if (other.gameObject.tag == "FireFlower")
+        {
+            Debug.Log("FireFlower");
+            TurnShellRed();
+        }
+        Destroy(other.gameObject); // Destruir el powerup
+    }
+
+    void TurnShellRed()
+    {
+        Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
+        foreach (Controller shell in shells)
+        {
+            shell.ActivateFireMode(5f); // Activar el modo "Fire" durante 3 segundos
         }
     }
 

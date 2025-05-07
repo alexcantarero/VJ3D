@@ -22,6 +22,7 @@ public class PowerUpBehaviour : MonoBehaviour
     void Update()
     {
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+
         transform.position += direction * speed * Time.deltaTime;
 
     }

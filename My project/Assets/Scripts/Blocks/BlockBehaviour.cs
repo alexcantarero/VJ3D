@@ -5,7 +5,8 @@ using UnityEngine;
 public class BlockBehaviour : MonoBehaviour
 {
 
-    public GameObject powerUpPrefab;
+    public GameObject TripleShroomPrefab;
+    public GameObject FireFlowerPrefab;
 
     void Start()
     {
@@ -18,23 +19,54 @@ public class BlockBehaviour : MonoBehaviour
         {
             //Animación de destrucción
             int valor = Random.Range(0,9);
-            Debug.Log( "Valor: " + valor);
-            if (valor == 8)  spawnPowerup();//Spawnear powerup (1/3 de chance)
-            Destroy(gameObject, 0.1f); //Destrucción con delay
+            
+            if (valor == 8)
+            {
+                Debug.Log("Valor: " + valor);
+                int powerup = Random.Range(0, 3);
+                switch (powerup) {
+                    case 0:
+                        spawnPowerupSeta();
+                        break;
 
+                    case 1:
+                        spawnPowerupFireFlower();
+                        break;
+
+                    case 2:
+                        spawnPowerupSeta();
+                        break;
+
+                }
+            }
+            Destroy(gameObject, 0.1f);
         }
     }
 
-    void spawnPowerup()
+    void spawnPowerupSeta()
     {
-        if (powerUpPrefab != null)
+        if (TripleShroomPrefab != null)
         {
-            Vector3 spawnPosition = transform.position; //Posición del bloque
-            Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity);
+            Vector3 spawnPosition = transform.position;
+            Instantiate(TripleShroomPrefab, spawnPosition, Quaternion.identity);
         }
         else
         {
-            Debug.LogError("PowerUp prefab no se ha asignado.");
+            Debug.LogError("Seta no se ha asignado.");
+        }
+    }
+
+    void spawnPowerupFireFlower()
+    {
+
+        if (FireFlowerPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(FireFlowerPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Fireflower no se ha asignado.");
         }
     }
 
