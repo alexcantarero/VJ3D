@@ -22,7 +22,7 @@ public class PaddleReboundZone : MonoBehaviour
             if (!isRecoiling)
                 StartCoroutine(RecoilAnimation());
 
-            Debug.Log("Solo animación de retroceso, sin alterar física.");
+            //Debug.Log("Solo animación de retroceso, sin alterar física.");
         }
     }
 
