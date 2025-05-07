@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3819658090992586198}
   - component: {fileID: 4841667005078357156}
   - component: {fileID: -5500621210142324473}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RockBlock
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,4 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e1f97e8831f2646a1c4ccc00a7b644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefab: {fileID: 6734784942005012367, guid: c00750b7de32c2c4a82aa435a72c934d, type: 3}
+  TripleShroomPrefab: {fileID: 6734784942005012367, guid: c00750b7de32c2c4a82aa435a72c934d, type: 3}
+  FireFlowerPrefab: {fileID: 1830835103190672621, guid: 0f8e427ef6a93b24faad88a536aacf23, type: 3}

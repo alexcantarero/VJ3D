@@ -69,6 +69,10 @@ PrefabInstance:
       value: shell
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       propertyPath: m_TagString
       value: Shell
       objectReference: {fileID: 0}
@@ -112,7 +116,9 @@ MonoBehaviour:
   speed: 25
   rotatingSpeed: 100
   paddleTag: Paddle
-  maxBounceAngle: 75
+  maxBounceAngle: 50
+  fireMaterial: {fileID: 2100000, guid: ba065c2a90edaa842947a6348c72ee0b, type: 2}
+  fireTexture: {fileID: 2800000, guid: 325e515b4c3a2a542a1290371b8d82f1, type: 3}
 --- !u!54 &2013613167826770636
 Rigidbody:
   m_ObjectHideFlags: 0

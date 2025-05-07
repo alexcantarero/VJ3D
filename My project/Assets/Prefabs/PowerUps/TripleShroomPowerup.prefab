@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5489518655350587870}
   m_Layer: 0
   m_Name: TripleShroomPowerup
-  m_TagString: Powerup
+  m_TagString: TripleShroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
