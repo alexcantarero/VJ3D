@@ -54,7 +54,7 @@ public class Controller : MonoBehaviour
         else if (collision.gameObject.CompareTag(paddleTag))
         {
             // Rebote en la paleta
-            //CalculatePaddleBounce(collision);
+            CalculatePaddleBounce(collision);
         }
         else
         {
