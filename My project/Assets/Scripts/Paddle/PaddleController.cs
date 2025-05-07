@@ -9,8 +9,8 @@ public class PaddleController : MonoBehaviour
     private float yPosition;
     private float zPosition;
 
-    private float minXPosition = -15.42f;
-    private float maxXPosition = 19f;
+    private float minXPosition = -16.42f;
+    private float maxXPosition = 20f;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class PaddleController : MonoBehaviour
 
     void Update()
     {
-        float moveSpeed = 20f; 
+        float moveSpeed = 30f; 
         float moveInput = 0f;
 
         if (Input.GetKey(KeyCode.LeftArrow))

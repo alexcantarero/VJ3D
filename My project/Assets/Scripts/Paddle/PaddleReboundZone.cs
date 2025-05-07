@@ -18,19 +18,11 @@ public class PaddleReboundZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shell"))
         {
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                // Rebote físico
-                Vector3 reboundDirection = Vector3.up + Vector3.forward;
-                rb.velocity = reboundDirection.normalized * bounceForce;
+            // NO modificar velocidad, solo animar
+            if (!isRecoiling)
+                StartCoroutine(RecoilAnimation());
 
-                // Inicia animación de retroceso visual
-                if (!isRecoiling)
-                    StartCoroutine(RecoilAnimation());
-
-                Debug.Log("Rebote físico + visual desde la pala.");
-            }
+            Debug.Log("Solo animación de retroceso, sin alterar física.");
         }
     }
 
