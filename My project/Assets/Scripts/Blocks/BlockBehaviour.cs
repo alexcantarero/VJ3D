@@ -14,7 +14,10 @@ public class BlockBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shell"))
         {
+            //Animación de destrucción
+            //Spawnear powerup (1/3 de chance)
             Destroy(gameObject, 0.1f); //Destrucción con delay
+
         }
     }
 

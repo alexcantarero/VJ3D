@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(paddleTag)) 
         {
-            CalculatePaddleBounce(collision);
+            //CalculatePaddleBounce(collision);
         }
         else 
         {
