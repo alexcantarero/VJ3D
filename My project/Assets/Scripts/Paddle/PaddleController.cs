@@ -210,17 +210,11 @@ public class PaddleController : MonoBehaviour
             tripled = false; //Si hay una sola concha, significa que puede salir powerup triple
             //Debug.Log("Concha única");
         }
+        if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
+                
 
-        foreach (Controller shell in shells)
-        {
-            if (shell.gameObject.transform.position.z < -18.0f) //Si se sale de la escena
-            {
-                //Destroy(shell); //Destruir la concha
-                Debug.Log("Concha destruida por salir de la escena");
-                if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
-                //return;
-            }
-        }
+            
+        
     }
 }
 

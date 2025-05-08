@@ -25,5 +25,11 @@ public class PowerUpBehaviour : MonoBehaviour
 
         transform.position += Vector3.back * speed * Time.deltaTime;
 
+        if (transform.position.z < -18.0f) Destroy(gameObject); //Se sale de los límites
+        
+
+            
+        
+
     }
 }

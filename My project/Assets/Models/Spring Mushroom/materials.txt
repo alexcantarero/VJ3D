@@ -1,0 +1,36 @@
+PowerUpHopperCap_Mat_v
+======================
+  Textures:
+    - IndDummy
+        Scale: -0.5, 0.5
+    - Env4
+        Scale: 0.4099999964237213, 0.550000011920929
+        Rotation: 0.05554368724631489
+    - HighLight
+        Scale: 0.3499999940395355, 1
+        Rotation: -0.3889278847621082
+
+  Ambient Colors:
+    - 128, 128, 128, 128
+
+  Constant Colors:
+    - 255, 255, 255, 0
+
+  Color Registers:
+    - -25, -25, -25, -73
+    - 300, 300, 300, 0
+    - 254, 254, 254, 255
+
+
+
+PowerUpHopperEye_Mat_v
+======================
+  Textures:
+    - PowerUpHopperEye
+
+  Ambient Colors:
+    - 128, 128, 128, 128
+
+  Color Registers:
+    - 0, 0, 0, -94
+    - 1023, 1023, 1023, 255
