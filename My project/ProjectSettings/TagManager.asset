@@ -10,6 +10,7 @@ TagManager:
   - TripleShroom
   - RedShell
   - Block
+  - MegaMushroom
   layers:
   - Default
   - TransparentFX

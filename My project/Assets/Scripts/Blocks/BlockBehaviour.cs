@@ -7,10 +7,15 @@ public class BlockBehaviour : MonoBehaviour
 
     public GameObject TripleShroomPrefab;
     public GameObject FireFlowerPrefab;
+    public GameObject MegaMushroomPrefab;
+    public GameObject MiniSetaPrefab;
+
+    private PaddleController pC;
 
     void Start()
     {
-        
+        GameObject player = GameObject.Find("Player");
+        pC = player.GetComponent<PaddleController>();
     }
     
     void OnCollisionEnter(Collision collision)
@@ -18,23 +23,26 @@ public class BlockBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Shell"))
         {
             //Animación de destrucción
-            int valor = Random.Range(0,9);
-            
-            if (valor == 8)
+            int valor = Random.Range(0,9); //1/8 de chance
+            if (valor == 8 && !pC.tripled)
             {
                 Debug.Log("Valor: " + valor);
                 int powerup = Random.Range(0, 3);
+
                 switch (powerup) {
-                    case 0:
+                    case 0: //Caso tripled
                         spawnPowerupSeta();
                         break;
 
-                    case 1:
+                    case 1: //Caso fireFlower
                         spawnPowerupFireFlower();
                         break;
 
-                    case 2:
-                        spawnPowerupSeta();
+                    case 2: //Caso isBig
+                        if (!pC.isBig) spawnPowerupMegaMushroom();
+                        else {
+                            spawnPowerupMiniSeta();
+                        }
                         break;
 
                 }
@@ -67,6 +75,32 @@ public class BlockBehaviour : MonoBehaviour
         else
         {
             Debug.LogError("Fireflower no se ha asignado.");
+        }
+    }
+    void spawnPowerupMegaMushroom()
+    {
+
+        if (MegaMushroomPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(MegaMushroomPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("MegaMushroom no se ha asignado.");
+        }
+    }
+    void spawnPowerupMiniSeta()
+    {
+
+        if (MiniSetaPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(MiniSetaPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("MiniSeta no se ha asignado.");
         }
     }
 
