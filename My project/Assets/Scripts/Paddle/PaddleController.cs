@@ -81,8 +81,13 @@ public class PaddleController : MonoBehaviour
         }
         tripled = true; // Activar el modo triple
         Vector3 shellPosition = shellPrefab.transform.position; //Posición de la concha
-        Instantiate(shellPrefab, shellPosition, Quaternion.identity);
-        Instantiate(shellPrefab, shellPosition, Quaternion.identity);
+
+        Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
+        GameObject shellInPlay = shells[0].gameObject; // Obtener la primera concha activa
+        Vector3 shellPositionInPlay = shellInPlay.transform.position; // Obtener la posición de la concha activa
+
+        Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+        Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
     }
     void TurnShellRed()
     {
