@@ -95,20 +95,29 @@ public class PaddleController : MonoBehaviour
 
     void AugmentPaddleX()
     {
-        isBig = true;
-        Transform paddle = transform.Find("Paddle");
-        paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y*2.2f,paddle.transform.localScale.z);
-        Lcannon.transform.position = new Vector3(Lcannon.transform.position.x + 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
-        Rcannon.transform.position = new Vector3(Rcannon.transform.position.x - 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+        if (!isBig)
+        {
+            isBig = true;
+            Transform paddle = transform.Find("Paddle");
+            paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y * 2.2f, paddle.transform.localScale.z);
+            Lcannon.transform.position = new Vector3(Lcannon.transform.position.x + 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
+            Rcannon.transform.position = new Vector3(Rcannon.transform.position.x - 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+
+        }
 
     }
 
     void ShrinkPaddleX()
     {
-        Transform paddle = transform.Find("Paddle");
-        paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y / 2.2f, paddle.transform.localScale.z);
-        Lcannon.transform.position = new Vector3(Lcannon.transform.position.x - 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
-        Rcannon.transform.position = new Vector3(Rcannon.transform.position.x + 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+        if (isBig) {
+
+            isBig = false;
+            Transform paddle = transform.Find("Paddle");
+            paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y / 2.2f, paddle.transform.localScale.z);
+            Lcannon.transform.position = new Vector3(Lcannon.transform.position.x - 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
+            Rcannon.transform.position = new Vector3(Rcannon.transform.position.x + 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+        
+        } 
 
     }
 

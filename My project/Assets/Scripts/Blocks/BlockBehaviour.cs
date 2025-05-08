@@ -24,14 +24,14 @@ public class BlockBehaviour : MonoBehaviour
         {
             //Animación de destrucción
             int valor = Random.Range(0,9); //1/8 de chance
-            if (valor == 8 && !pC.tripled)
+            if (valor == 8)
             {
                 Debug.Log("Valor: " + valor);
                 int powerup = Random.Range(0, 3);
 
                 switch (powerup) {
                     case 0: //Caso tripled
-                        spawnPowerupSeta();
+                        if (!pC.tripled) spawnPowerupSeta();
                         break;
 
                     case 1: //Caso fireFlower

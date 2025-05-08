@@ -16114,6 +16114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniMushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 1370021685209244747, guid: f5893f4a231ae034495c13a83a2124bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1749819817244425969, guid: f5893f4a231ae034495c13a83a2124bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.51627
