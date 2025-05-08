@@ -7,9 +7,13 @@ public class PaddleController : MonoBehaviour
     public Camera mainCamera;
     public GameObject shellPrefab; // Prefab de la concha
     public GameObject invisibleWall; // Pared invisible
+    public GameObject billPrefab;
 
     public GameObject Lcannon;
     public GameObject Rcannon;
+
+    public GameObject LBillPoint;
+    public GameObject RBillPoint;
 
     public bool tripled = false;
     public bool isBig = false;
@@ -211,10 +215,20 @@ public class PaddleController : MonoBehaviour
             //Debug.Log("Concha única");
         }
         if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
-                
 
-            
-        
+        //-----------------TESTING ---------------------
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Creando BALA en posición: " + LBillPoint.transform.position);
+            Instantiate(billPrefab, LBillPoint.transform.position, Quaternion.identity);
+            Instantiate(billPrefab, RBillPoint.transform.position, Quaternion.identity);
+        }
+
+
+
+
+
     }
 }
 

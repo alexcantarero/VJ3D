@@ -12,6 +12,7 @@ TagManager:
   - Block
   - MegaMushroom
   - MiniMushroom
+  - BulletBill
   layers:
   - Default
   - TransparentFX

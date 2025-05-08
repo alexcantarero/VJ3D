@@ -20,7 +20,7 @@ public class BlockBehaviour : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Shell"))
+        if (collision.gameObject.CompareTag("Shell") || collision.gameObject.CompareTag("BulletBill"))
         {
             //Animación de destrucción
             int valor = Random.Range(0,9); //1/8 de chance
@@ -49,6 +49,7 @@ public class BlockBehaviour : MonoBehaviour
             }
             Destroy(gameObject, 0.1f);
         }
+        
     }
 
     void spawnPowerupSeta()
