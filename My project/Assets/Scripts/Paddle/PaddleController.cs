@@ -64,7 +64,12 @@ public class PaddleController : MonoBehaviour
             AugmentPaddleX();
 
         }
-            Destroy(other.gameObject); // Destruir el powerup
+        else if (other.gameObject.tag == "MiniMushroom")
+        {
+            Debug.Log("MiniMushroom");
+            if(isBig)ShrinkPaddleX();
+        }
+        Destroy(other.gameObject); // Destruir el powerup
     }
 
     void SpawnTwoShells(GameObject shell)
@@ -143,7 +148,7 @@ public class PaddleController : MonoBehaviour
 
     void MovePaddle()
     {
-        float moveSpeed = 30f;
+        float moveSpeed = 40f;
         float moveInput = 0f;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -184,18 +189,19 @@ public class PaddleController : MonoBehaviour
 
         //Comprobaciones de conchas
         Controller[] shells = FindObjectsOfType<Controller>();
-        Debug.Log("Hay " + shells.Length);
+        //Debug.Log("Hay " + shells.Length);
 
         if (shells.Length == 1)
         {
             tripled = false; //Si hay una sola concha, significa que puede salir powerup triple
-            Debug.Log("Concha única");
+            //Debug.Log("Concha única");
         }
+
         foreach (Controller shell in shells)
         {
             if (shell.gameObject.transform.position.z < -18.0f) //Si se sale de la escena
             {
-                Destroy(shell); //Destruir la concha
+                //Destroy(shell); //Destruir la concha
                 Debug.Log("Concha destruida por salir de la escena");
                 if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
                 //return;

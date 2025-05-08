@@ -11,6 +11,7 @@ TagManager:
   - RedShell
   - Block
   - MegaMushroom
+  - MiniMushroom
   layers:
   - Default
   - TransparentFX

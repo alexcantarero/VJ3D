@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -131,5 +132,10 @@ public class Controller : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = rb.velocity.normalized * speed;
+        if (transform.position.z < -18.0f)
+        {
+
+            Destroy(gameObject);
+        }
     }
 }

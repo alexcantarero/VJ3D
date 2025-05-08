@@ -168,5 +168,4 @@ MonoBehaviour:
   TripleShroomPrefab: {fileID: 6734784942005012367, guid: c00750b7de32c2c4a82aa435a72c934d, type: 3}
   FireFlowerPrefab: {fileID: 1830835103190672621, guid: 0f8e427ef6a93b24faad88a536aacf23, type: 3}
   MegaMushroomPrefab: {fileID: 5527133608309765272, guid: 21cfa78c1d380814dac563290b7c63d0, type: 3}
-  MiniSetaPrefab: {fileID: 0}
-  pC: {fileID: 0}
+  MiniSetaPrefab: {fileID: 1370021685209244747, guid: f5893f4a231ae034495c13a83a2124bf, type: 3}
