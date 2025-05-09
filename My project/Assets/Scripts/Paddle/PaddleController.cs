@@ -193,9 +193,9 @@ public class PaddleController : MonoBehaviour
             ToggleGodMode(isGodModeActive);
         }
 
-        if (isGodModeActive);
+        /*if (isGodModeActive);
         //Debug.Log("God Mode activado");
-        else; //Debug.Log("God Mode incativo");
+        else; //Debug.Log("God Mode incativo"); */
 
 
         MovePaddle();

@@ -4,7 +4,7 @@ public class MouseCameraOrbit : MonoBehaviour
 {
     public Transform target;
     public float startDistance = 80f;
-    public float endDistance = 60f;
+    public float endDistance = 20f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
     public float yMinLimit = -20f;
