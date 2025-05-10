@@ -3,13 +3,13 @@ using UnityEngine;
 public class MouseCameraOrbit : MonoBehaviour
 {
     public Transform target;
-    public float startDistance = 80f;
-    public float endDistance = 20f;
+    public float startDistance = 50f;
+    public float endDistance = 45f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
     public float yMinLimit = -20f;
     public float yMaxLimit = 80f;
-    public float autoRotationSpeed = 20f;
+    public float autoRotationSpeed = 10f;
     public float autoZoomSpeed = 10f;
 
     private float x = 0.0f;
@@ -31,10 +31,8 @@ public class MouseCameraOrbit : MonoBehaviour
         x = 90f;
         y = -15f;
 
-        // Guardar la rotación objetivo desde el Inspector
-        Vector3 originalEuler = transform.eulerAngles;
-        targetX = originalEuler.y;
-        targetY = originalEuler.x;
+        targetX = 0f;
+        targetY = 50f;
 
         if (GetComponent<Rigidbody>())
             GetComponent<Rigidbody>().freezeRotation = true;
@@ -46,6 +44,8 @@ public class MouseCameraOrbit : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"Distance to target: {Vector3.Distance(transform.position, target.position)}");
+
         // Espera a que el jugador presione '1' para empezar la animación y reanudar el juego
         if (!hasStarted && Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -67,6 +67,7 @@ public class MouseCameraOrbit : MonoBehaviour
             float currentRotationSpeed = autoRotationSpeed * speedMultiplier;
             float currentZoomSpeed = autoZoomSpeed * speedMultiplier;
 
+            // Move rotation towards target values
             x = Mathf.MoveTowards(x, targetX, currentRotationSpeed * Time.unscaledDeltaTime);
             y = Mathf.MoveTowards(y, targetY, currentRotationSpeed * Time.unscaledDeltaTime);
 
@@ -74,13 +75,35 @@ public class MouseCameraOrbit : MonoBehaviour
             float zoomFactor = Mathf.InverseLerp(10f, 0f, rotationDifference);
             currentZoomSpeed *= Mathf.Lerp(1f, 10f, zoomFactor);
 
-            currentDistance = Mathf.Lerp(currentDistance, endDistance, Time.unscaledDeltaTime * currentZoomSpeed);
+            // Move distance towards endDistance smoothly (towards target zoom value)
+            currentDistance = Mathf.MoveTowards(currentDistance, endDistance, Time.unscaledDeltaTime * currentZoomSpeed);
 
-            if (Mathf.Abs(currentDistance - endDistance) < 0.1f && Mathf.Abs(x - targetX) < 0.1f && Mathf.Abs(y - targetY) < 0.1f)
+            Debug.Log($"Current Distance: {currentDistance}, Target Distance: {endDistance}"); // Debugging line
+
+            // Check if rotation is complete
+            bool rotationDone = Mathf.Abs(x - targetX) < 0.1f && Mathf.Abs(y - targetY) < 0.1f;
+
+            // Zoom is done when currentDistance reaches endDistance
+            bool zoomDone = Mathf.Abs(currentDistance - endDistance) < 0.1f;
+
+            // If rotation is done, snap to the target
+            if (rotationDone)
+            {
+                x = targetX;
+                y = targetY;
+            }
+
+            // If zoom is done, snap to the target distance
+            if (zoomDone)
             {
                 currentDistance = endDistance;
+            }
+
+            // Once both rotation and zoom are done, stop auto-rotation and resume the game
+            if (rotationDone && zoomDone)
+            {
                 isAutoRotating = false;
-                Time.timeScale = 1f; // Reanuda el juego cuando la cámara termina de girar
+                Time.timeScale = 1f; // Reanuda el juego
             }
 
             UpdateCameraPosition();
@@ -102,10 +125,9 @@ public class MouseCameraOrbit : MonoBehaviour
     void UpdateCameraPosition()
     {
         Quaternion rotation = Quaternion.Euler(y, x, 0);
-        Vector3 negDistance = new Vector3(0.0f, 0.0f, -currentDistance);
-        Vector3 position = rotation * negDistance + target.position;
-
+        Vector3 direction = rotation * Vector3.back;
+        transform.position = target.position + direction * currentDistance;
         transform.rotation = rotation;
-        transform.position = position;
     }
+
 }
