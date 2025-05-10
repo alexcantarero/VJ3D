@@ -57,6 +57,10 @@ public class Controller : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (isGodModeActive)
+        {
+            return;
+        }
         if (isFireMode && collision.gameObject.CompareTag("Block"))
         {
             // Destruir el bloque al atravesarlo
@@ -128,6 +132,20 @@ public class Controller : MonoBehaviour
         }
     }
 
+    public void EnableGodMode()
+    {
+        isGodModeActive = true;
+        ToggleGodMode(true);
+        Debug.Log("God Mode enabled on: " + gameObject.name);
+
+    }
+
+    public bool IsGodModeEnabled()
+    {
+        return isGodModeActive;
+    }
+
+
     public void ActivateFireMode(float duration)
     {
         if (isFireMode) return; // Evitar activar el modo "Fire" si ya está activo
@@ -196,10 +214,10 @@ public class Controller : MonoBehaviour
             ToggleGodMode(isGodModeActive);
         }
 
-        if (isGodModeActive) 
+        /*if (isGodModeActive) 
             Debug.Log("God Mode activado");
         else
-            Debug.Log("God Mode incativo"); 
+            Debug.Log("God Mode incativo"); */
     }
 
     void FixedUpdate()

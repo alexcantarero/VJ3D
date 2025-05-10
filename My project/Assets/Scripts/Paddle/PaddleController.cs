@@ -73,16 +73,48 @@ public class PaddleController : MonoBehaviour
             Debug.LogError("Shell prefab no se ha asignado.");
             return;
         }
-        tripled = true; // Activar el modo triple
-        Vector3 shellPosition = shellPrefab.transform.position; //Posición de la concha
 
-        Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
-        GameObject shellInPlay = shells[0].gameObject; // Obtener la primera concha activa
-        Vector3 shellPositionInPlay = shellInPlay.transform.position; // Obtener la posición de la concha activa
+        tripled = true;
 
-        Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
-        Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+        Controller[] shells = FindObjectsOfType<Controller>();
+        if (shells.Length == 0)
+        {
+            Debug.LogWarning("No hay conchas activas para clonar.");
+            return;
+        }
+
+        GameObject shellInPlay = shells[0].gameObject;
+        Vector3 shellPositionInPlay = shellInPlay.transform.position;
+
+        GameObject newShell1 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+        GameObject newShell2 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+
+        Controller originalController = shellInPlay.GetComponent<Controller>();
+        bool godModeActive = originalController != null && originalController.IsGodModeEnabled();
+
+        Collider sharedPaddle = originalController.paddleCollider;
+        GameObject sharedWall = originalController.invisibleWall;
+
+        Controller controller1 = newShell1.GetComponent<Controller>();
+        Controller controller2 = newShell2.GetComponent<Controller>();
+
+        if (controller1 != null)
+        {
+            controller1.paddleCollider = sharedPaddle;
+            controller1.invisibleWall = sharedWall;
+
+            if (godModeActive) controller1.EnableGodMode();
+        }
+
+        if (controller2 != null)
+        {
+            controller2.paddleCollider = sharedPaddle;
+            controller2.invisibleWall = sharedWall;
+
+            if (godModeActive) controller2.EnableGodMode();
+        }
     }
+
     void TurnShellRed()
     {
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
