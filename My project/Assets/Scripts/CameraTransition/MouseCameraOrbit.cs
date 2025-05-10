@@ -18,7 +18,7 @@ public class MouseCameraOrbit : MonoBehaviour
     private float autoRotateTime = 0f;
 
     private bool isAutoRotating = false;
-    private bool hasStarted = false; // Nuevo: controla si se presionó '1'
+    private bool hasStarted = false; 
 
     private float targetX, targetY;
     private float speedMultiplier;
@@ -27,7 +27,6 @@ public class MouseCameraOrbit : MonoBehaviour
     {
         currentDistance = startDistance;
 
-        // Ángulo inicial de cámara: lateral
         x = 90f;
         y = -15f;
 
@@ -44,9 +43,6 @@ public class MouseCameraOrbit : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Distance to target: {Vector3.Distance(transform.position, target.position)}");
-
-        // Espera a que el jugador presione '1' para empezar la animación y reanudar el juego
         if (!hasStarted && Input.GetKeyDown(KeyCode.Alpha1))
         {
             hasStarted = true;
@@ -67,7 +63,6 @@ public class MouseCameraOrbit : MonoBehaviour
             float currentRotationSpeed = autoRotationSpeed * speedMultiplier;
             float currentZoomSpeed = autoZoomSpeed * speedMultiplier;
 
-            // Move rotation towards target values
             x = Mathf.MoveTowards(x, targetX, currentRotationSpeed * Time.unscaledDeltaTime);
             y = Mathf.MoveTowards(y, targetY, currentRotationSpeed * Time.unscaledDeltaTime);
 
@@ -75,31 +70,23 @@ public class MouseCameraOrbit : MonoBehaviour
             float zoomFactor = Mathf.InverseLerp(10f, 0f, rotationDifference);
             currentZoomSpeed *= Mathf.Lerp(1f, 10f, zoomFactor);
 
-            // Move distance towards endDistance smoothly (towards target zoom value)
             currentDistance = Mathf.MoveTowards(currentDistance, endDistance, Time.unscaledDeltaTime * currentZoomSpeed);
 
-            Debug.Log($"Current Distance: {currentDistance}, Target Distance: {endDistance}"); // Debugging line
-
-            // Check if rotation is complete
             bool rotationDone = Mathf.Abs(x - targetX) < 0.1f && Mathf.Abs(y - targetY) < 0.1f;
 
-            // Zoom is done when currentDistance reaches endDistance
             bool zoomDone = Mathf.Abs(currentDistance - endDistance) < 0.1f;
 
-            // If rotation is done, snap to the target
             if (rotationDone)
             {
                 x = targetX;
                 y = targetY;
             }
 
-            // If zoom is done, snap to the target distance
             if (zoomDone)
             {
                 currentDistance = endDistance;
             }
 
-            // Once both rotation and zoom are done, stop auto-rotation and resume the game
             if (rotationDone && zoomDone)
             {
                 isAutoRotating = false;

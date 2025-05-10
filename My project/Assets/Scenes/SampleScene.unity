@@ -683,8 +683,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0334699, y: 2.1474557, z: 31.161589}
-  m_Center: {x: -15.199734, y: 3.2901723, z: -11.503472}
+  m_Size: {x: 0.6412121, y: 2.1474555, z: 31.161587}
+  m_Center: {x: -15.00362, y: 3.2901723, z: -11.50347}
 --- !u!1001 &83579788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9608,7 +9608,7 @@ Transform:
   m_GameObject: {fileID: 1263550083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.573, y: 2.07, z: 7.880599}
+  m_LocalPosition: {x: -0.573, y: -2, z: 7.880599}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10390,6 +10390,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0dcb16a539202944997e0a23c4102f4, type: 3}
+--- !u!135 &1374159333 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 6055773379457590219, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
+  m_PrefabInstance: {fileID: 3946094129610735082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392835957
 GameObject:
   m_ObjectHideFlags: 0
@@ -14475,7 +14480,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
   shellPrefab: {fileID: 6613718076741339229, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
-  invisibleWall: {fileID: 50194257}
   billPrefab: {fileID: 7791730994217425512, guid: 025688e367f365d41934ee9878738362, type: 3}
   Lcannon: {fileID: 728444821}
   Rcannon: {fileID: 103842651}
@@ -16274,9 +16278,21 @@ PrefabInstance:
       value: Shell
       objectReference: {fileID: 0}
     - target: {fileID: 6943256417616418329, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
+      propertyPath: invisibleWall
+      value: 
+      objectReference: {fileID: 50194257}
+    - target: {fileID: 6943256417616418329, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
+      propertyPath: shellCollider
+      value: 
+      objectReference: {fileID: 1374159333}
+    - target: {fileID: 6943256417616418329, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
       propertyPath: maxBounceAngle
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6943256417616418329, guid: e3de2f08b78547c4f9552521c8abfef4, type: 3}
+      propertyPath: paddleCollider
+      value: 
+      objectReference: {fileID: 1971058147}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

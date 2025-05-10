@@ -6,7 +6,6 @@ public class PaddleController : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject shellPrefab; // Prefab de la concha
-    public GameObject invisibleWall; // Pared invisible
     public GameObject billPrefab;
 
     public GameObject Lcannon;
@@ -24,8 +23,6 @@ public class PaddleController : MonoBehaviour
     private float minXPosition = -16.42f;
     private float maxXPosition = 20f;
 
-    private bool isGodModeActive = false; // Variable que controla el God Mode
-    private Collider paddleCollider; // Colisionador de la paleta
 
     void Start()
     {
@@ -41,13 +38,6 @@ public class PaddleController : MonoBehaviour
         yPosition = transform.position.y;
         zPosition = transform.position.z;
 
-        paddleCollider = GetComponent<BoxCollider>(); // Obtener el colisionador de la paleta
-
-        // Desactivar la pared invisible al principio
-        if (invisibleWall != null)
-        {
-            invisibleWall.SetActive(false);
-        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -130,41 +120,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-
-
-    void ToggleGodMode(bool isActive)
-    {
-        if (isActive)
-        {
-            // Desactivar la colisión de la paleta
-            if (paddleCollider != null)
-            {
-                paddleCollider.enabled = false; // Desactivar la colisión de la paleta
-            }
-
-            // Activar la pared invisible
-            if (invisibleWall != null)
-            {
-                invisibleWall.SetActive(true); // Activar la pared invisible para que las pelotas colisionen con ella
-            }
-        }
-        else
-        {
-            // Restaurar las colisiones
-            if (paddleCollider != null)
-            {
-                paddleCollider.enabled = true; // Activar la colisión
-            }
-
-            // Desactivar la pared invisible
-            if (invisibleWall != null)
-            {
-                invisibleWall.SetActive(false); // Desactivar la pared invisible
-            }
-        }
-    }
-
-    void MovePaddle()
+     void MovePaddle()
     {
         float moveSpeed = 40f;
         float moveInput = 0f;
@@ -186,18 +142,6 @@ public class PaddleController : MonoBehaviour
 
     void Update()
     {
-        // Toggle God Mode cuando se presiona la tecla 'G'
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            isGodModeActive = !isGodModeActive; // Alternar el estado del God Mode
-            ToggleGodMode(isGodModeActive);
-        }
-
-        /*if (isGodModeActive);
-        //Debug.Log("God Mode activado");
-        else; //Debug.Log("God Mode incativo"); */
-
-
         MovePaddle();
     }
 

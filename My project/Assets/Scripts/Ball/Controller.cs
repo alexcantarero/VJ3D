@@ -21,11 +21,22 @@ public class Controller : MonoBehaviour
 
     private SphereCollider sC; // Collider de la esfera
 
+    private bool isGodModeActive = false; // Variable que controla el God Mode
+    public Collider paddleCollider; // Colisionador de la paleta
+    public GameObject invisibleWall; // Pared invisible
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         originalMaterial = GetComponent<Renderer>().material;
         sC = GetComponent<SphereCollider>();
+
+        // Desactivar la pared invisible al principio
+        if (invisibleWall != null)
+        {
+            invisibleWall.SetActive(false);
+        }
 
         shellBackRenderer = gameObject.GetComponent<MeshRenderer>();
 
@@ -64,6 +75,56 @@ public class Controller : MonoBehaviour
             Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal);
 
             rb.velocity = reflectedVelocity.normalized * speed;
+        }
+    }
+
+    void ToggleGodMode(bool isActive)
+    {
+
+        Collider[] ballColliders = GetComponentsInChildren<Collider>();
+        Collider[] paddleColliders = paddleCollider.GetComponentsInChildren<Collider>();
+
+        
+
+        if (isActive)
+        {
+            // Desactivar la colisión de la paleta
+            if (paddleCollider != null)
+            {
+                foreach (var ballCol in ballColliders)
+                {
+                    foreach (var padCol in paddleColliders)
+                    {
+                        Physics.IgnoreCollision(ballCol, padCol, true);
+                    }
+                }
+            }
+
+            // Activar la pared invisible
+            if (invisibleWall != null)
+            {
+                invisibleWall.SetActive(true); // Activar la pared invisible para que las pelotas colisionen con ella
+            }
+        }
+        else
+        {
+            // Restaurar las colisiones
+            if (paddleCollider != null)
+            {
+                foreach (var ballCol in ballColliders)
+                {
+                    foreach (var padCol in paddleColliders)
+                    {
+                        Physics.IgnoreCollision(ballCol, padCol, false);
+                    }
+                }
+            }
+
+            // Desactivar la pared invisible
+            if (invisibleWall != null)
+            {
+                invisibleWall.SetActive(false); // Desactivar la pared invisible
+            }
         }
     }
 
@@ -127,6 +188,18 @@ public class Controller : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * speed;
         }
+  
+        // Toggle God Mode cuando se presiona la tecla 'G'
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            isGodModeActive = !isGodModeActive; // Alternar el estado del God Mode
+            ToggleGodMode(isGodModeActive);
+        }
+
+        if (isGodModeActive) 
+            Debug.Log("God Mode activado");
+        else
+            Debug.Log("God Mode incativo"); 
     }
 
     void FixedUpdate()
