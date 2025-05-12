@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     public float maxBounceAngle = 50f; // En grados
     private Rigidbody rb;
 
-    private bool isFireMode = false; // Indica si la concha está en modo "Fire"
+    public bool isFireMode = false; // Indica si la concha está en modo "Fire"
     private Material originalMaterial; // Material original de la concha
     public Material fireMaterial; // Material rojo para el modo "Fire"
 
@@ -61,11 +61,15 @@ public class Controller : MonoBehaviour
         {
             return;
         }
-        if (isFireMode && collision.gameObject.CompareTag("Block"))
+        if (!isFireMode && collision.gameObject.CompareTag("Block"))
         {
             // Destruir el bloque al atravesarlo
             Debug.Log("Destruyendo bloque en modo Fire");
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Block") && isFireMode)
+        {
+            return;
         }
         else if (collision.gameObject.CompareTag(paddleTag))
         {
@@ -82,7 +86,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void ToggleGodMode(bool isActive)
+    public void ToggleGodMode(bool isActive)
     {
 
         Collider[] ballColliders = GetComponentsInChildren<Collider>();

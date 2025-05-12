@@ -11,11 +11,13 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject MiniSetaPrefab;
 
     private PaddleController pC;
+    private Controller c;
 
     void Start()
     {
         GameObject player = GameObject.Find("Player");
         pC = player.GetComponent<PaddleController>();
+        c = player.GetComponent<Controller>();
     }
     
     void OnCollisionEnter(Collision collision)
@@ -23,6 +25,12 @@ public class BlockBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Shell") || collision.gameObject.CompareTag("BulletBill"))
         {
             //Animación de destrucción
+            if(collision.gameObject.CompareTag("BulletBill"))
+            {
+                Destroy(collision.gameObject);
+            }
+  
+
             int valor = Random.Range(0,9); //1/8 de chance
             if (valor == 8)
             {

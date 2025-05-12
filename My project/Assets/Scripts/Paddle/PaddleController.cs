@@ -103,7 +103,7 @@ public class PaddleController : MonoBehaviour
             controller1.paddleCollider = sharedPaddle;
             controller1.invisibleWall = sharedWall;
 
-            if (godModeActive) controller1.EnableGodMode();
+            if (godModeActive) controller1.ToggleGodMode(true);
         }
 
         if (controller2 != null)
@@ -111,7 +111,7 @@ public class PaddleController : MonoBehaviour
             controller2.paddleCollider = sharedPaddle;
             controller2.invisibleWall = sharedWall;
 
-            if (godModeActive) controller2.EnableGodMode();
+            if (godModeActive) controller2.ToggleGodMode(true);
         }
     }
 
