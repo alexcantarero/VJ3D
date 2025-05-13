@@ -25,6 +25,8 @@ public class Controller : MonoBehaviour
     public Collider paddleCollider; // Colisionador de la paleta
     public GameObject invisibleWall; // Pared invisible
 
+    public ScoreDisplay scoreDisplay; // Asigna esto en el Inspector
+    public int pointsPerBlock = 100;
 
     void Start()
     {
@@ -61,15 +63,20 @@ public class Controller : MonoBehaviour
         {
             return;
         }
-        if (!isFireMode && collision.gameObject.CompareTag("Block"))
-        {
-            // Destruir el bloque al atravesarlo
-            Debug.Log("Destruyendo bloque en modo Fire");
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Block") && isFireMode)
-        {
-            return;
+        if (collision.gameObject.CompareTag("Block")) {
+            scoreDisplay.AddPoints(pointsPerBlock);
+            Debug.Log("puntos sumados!");
+            
+            if (!isFireMode)
+            {
+                // Destruir el bloque al atravesarlo
+                Debug.Log("Destruyendo bloque en modo Fire");
+                Destroy(collision.gameObject);
+            }
+            else 
+            {
+                return;
+            }
         }
         else if (collision.gameObject.CompareTag(paddleTag))
         {

@@ -30,7 +30,6 @@ public class BlockBehaviour : MonoBehaviour
                 Destroy(collision.gameObject);
             }
   
-
             int valor = Random.Range(0,9); //1/8 de chance
             if (valor == 8)
             {
