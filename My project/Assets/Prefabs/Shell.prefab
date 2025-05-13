@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6271768656509826316
+--- !u!1001 &477703815092923861
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -62,6 +62,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       propertyPath: m_Name
+      value: Shell 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
+      propertyPath: m_TagString
       value: Shell
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
@@ -82,32 +86,55 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3867374274911697765}
+      addedObject: {fileID: 663272914586791581}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6943256417616418329}
+      addedObject: {fileID: 5543600338951741274}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2013613167826770636}
+      addedObject: {fileID: 4358382548324633876}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6055773379457590219}
+      addedObject: {fileID: 4533842210312333104}
     - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6297823189442148232}
+      addedObject: {fileID: 5861665717491132603}
   m_SourcePrefab: {fileID: 100100000, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
---- !u!1 &2757731759274340484 stripped
+--- !u!1 &747681957243736196 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
-  m_PrefabInstance: {fileID: 6271768656509826316}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
+  m_PrefabInstance: {fileID: 477703815092923861}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6943256417616418329
+--- !u!114 &663272914586791581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757731759274340484}
+  m_GameObject: {fileID: 747681957243736196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 4.22
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!1 &8641711861896063069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
+  m_PrefabInstance: {fileID: 477703815092923861}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5543600338951741274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641711861896063069}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec9ac5bb3da994f4caa279ac834c82de, type: 3}
@@ -117,15 +144,20 @@ MonoBehaviour:
   rotatingSpeed: 100
   paddleTag: Paddle
   maxBounceAngle: 50
+  isFireMode: 0
   fireMaterial: {fileID: 2100000, guid: ba065c2a90edaa842947a6348c72ee0b, type: 2}
   fireTexture: {fileID: 2800000, guid: 325e515b4c3a2a542a1290371b8d82f1, type: 3}
---- !u!54 &2013613167826770636
+  paddleCollider: {fileID: 0}
+  invisibleWall: {fileID: 0}
+  scoreDisplay: {fileID: 0}
+  pointsPerBlock: 100
+--- !u!54 &4358382548324633876
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757731759274340484}
+  m_GameObject: {fileID: 8641711861896063069}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -146,13 +178,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 1
---- !u!135 &6055773379457590219
+--- !u!135 &4533842210312333104
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757731759274340484}
+  m_GameObject: {fileID: 8641711861896063069}
   m_Material: {fileID: 13400000, guid: dffbc08517fa11f4fa156792e10743ad, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -167,14 +199,14 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.35786182
   m_Center: {x: 0, y: 0.17136298, z: 0.017064085}
---- !u!96 &6297823189442148232
+--- !u!96 &5861665717491132603
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757731759274340484}
+  m_GameObject: {fileID: 8641711861896063069}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -280,26 +312,3 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!1 &6613718076741339229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59bca42b0a645bf478282ab8af840982, type: 3}
-  m_PrefabInstance: {fileID: 6271768656509826316}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3867374274911697765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6613718076741339229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 4.22
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []

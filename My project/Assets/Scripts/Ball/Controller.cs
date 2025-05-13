@@ -28,11 +28,20 @@ public class Controller : MonoBehaviour
     public ScoreDisplay scoreDisplay; // Asigna esto en el Inspector
     public int pointsPerBlock = 100;
 
+
+    private void Awake()
+    {
+        paddleCollider = GameObject.FindGameObjectWithTag(paddleTag).GetComponent<Collider>();
+        invisibleWall = GameObject.Find("invisibleWall");
+        scoreDisplay = GameObject.Find("score").GetComponent<ScoreDisplay>();
+
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         originalMaterial = GetComponent<Renderer>().material;
         sC = GetComponent<SphereCollider>();
+
 
         // Desactivar la pared invisible al principio
         if (invisibleWall != null)

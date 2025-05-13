@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1827953694147963176}
   - component: {fileID: 8692653443650325983}
   - component: {fileID: 3494198809905272899}
-  - component: {fileID: 5489518655350587870}
+  - component: {fileID: 7711398565078832573}
   m_Layer: 0
   m_Name: TripleShroomPowerup
   m_TagString: TripleShroom
@@ -84,8 +84,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.3543645
-  m_Center: {x: 1.1311429, y: -0.0000067923384, z: 3.9662004}
+  m_Radius: 2.3500643
+  m_Center: {x: 1.1311432, y: 0.9956906, z: 3.9661984}
 --- !u!114 &3494198809905272899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,14 +100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   speed: 8
---- !u!114 &5489518655350587870
+--- !u!114 &7711398565078832573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6734784942005012367}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 

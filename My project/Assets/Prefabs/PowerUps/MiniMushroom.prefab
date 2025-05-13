@@ -88,10 +88,10 @@ PrefabInstance:
       addedObject: {fileID: 8458770334798637764}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f1237a06a607a747a4690962660ce40, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1217697064891387245}
+      addedObject: {fileID: 963535861626240871}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f1237a06a607a747a4690962660ce40, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 963535861626240871}
+      addedObject: {fileID: 2368500450815625677}
   m_SourcePrefab: {fileID: 100100000, guid: 2f1237a06a607a747a4690962660ce40, type: 3}
 --- !u!1 &1370021685209244747 stripped
 GameObject:
@@ -146,24 +146,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1217697064891387245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370021685209244747}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0.9037392, g: 1, b: 0.25, a: 1}
-  outlineWidth: 4.2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &963535861626240871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +160,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   speed: 8
+--- !u!114 &2368500450815625677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370021685209244747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9037392, g: 1, b: 0.25, a: 1}
+  outlineWidth: 4.2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
