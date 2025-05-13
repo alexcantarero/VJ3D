@@ -53,7 +53,7 @@ public class PaddleController : MonoBehaviour
             TurnShellRed();
         }
         else if (other.gameObject.tag == "MegaMushroom")
-        { 
+        {
             Debug.Log("MegaMushroom");
             AugmentPaddleX();
 
@@ -61,9 +61,15 @@ public class PaddleController : MonoBehaviour
         else if (other.gameObject.tag == "MiniMushroom")
         {
             Debug.Log("MiniMushroom");
-            if(isBig)ShrinkPaddleX();
+            if (isBig) ShrinkPaddleX();
         }
-        Destroy(other.gameObject); // Destruir el powerup
+        else if (other.gameObject.tag == "BulletBill")
+        { 
+            Debug.Log("BulletBill");
+            StartCoroutine(ShootBulletBill());
+
+        }
+            Destroy(other.gameObject); // Destruir el powerup
     }
 
     void SpawnTwoShells(GameObject shell)
@@ -140,19 +146,35 @@ public class PaddleController : MonoBehaviour
 
     void ShrinkPaddleX()
     {
-        if (isBig) {
+        if (isBig)
+        {
 
             isBig = false;
             Transform paddle = transform.Find("Paddle");
             paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y / 2.2f, paddle.transform.localScale.z);
             Lcannon.transform.position = new Vector3(Lcannon.transform.position.x - 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
             Rcannon.transform.position = new Vector3(Rcannon.transform.position.x + 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
-        
-        } 
+
+        }
 
     }
 
-     void MovePaddle()
+    IEnumerator ShootBulletBill()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            // Dispara dos balas
+            Instantiate(billPrefab, LBillPoint.transform.position, Quaternion.identity);
+            Instantiate(billPrefab, RBillPoint.transform.position, Quaternion.identity);
+
+            if (i < 2) // Espera solo después de las dos primeras tandas
+                yield return new WaitForSeconds(2f);
+        }
+
+    }
+
+
+    void MovePaddle()
     {
         float moveSpeed = 40f;
         float moveInput = 0f;
@@ -191,15 +213,6 @@ public class PaddleController : MonoBehaviour
             //Debug.Log("Concha única");
         }
         if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
-
-        //-----------------TESTING ---------------------
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("Creando BALA en posición: " + LBillPoint.transform.position);
-            Instantiate(billPrefab, LBillPoint.transform.position, Quaternion.identity);
-            Instantiate(billPrefab, RBillPoint.transform.position, Quaternion.identity);
-        }
 
 
 
