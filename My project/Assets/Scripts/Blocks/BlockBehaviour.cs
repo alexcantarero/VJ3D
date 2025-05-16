@@ -9,6 +9,7 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject FireFlowerPrefab;
     public GameObject MegaMushroomPrefab;
     public GameObject MiniSetaPrefab;
+    public GameObject BulletBillPWPrefab;
 
     private PaddleController pC;
     private Controller c;
@@ -34,7 +35,7 @@ public class BlockBehaviour : MonoBehaviour
             if (valor == 8)
             {
                 Debug.Log("Valor: " + valor);
-                int powerup = Random.Range(0, 3);
+                int powerup = Random.Range(0, 4);
 
                 switch (powerup) {
                     case 0: //Caso tripled
@@ -50,6 +51,9 @@ public class BlockBehaviour : MonoBehaviour
                         else {
                             spawnPowerupMiniSeta();
                         }
+                        break;
+                    case 3:
+                        spawnBulletBillPowerup();
                         break;
 
                 }
@@ -109,6 +113,19 @@ public class BlockBehaviour : MonoBehaviour
         else
         {
             Debug.LogError("MiniSeta no se ha asignado.");
+        }
+    }
+
+    void spawnBulletBillPowerup()
+    {
+        if (BulletBillPWPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(BulletBillPWPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("BulletBill no se ha asignado.");
         }
     }
 
