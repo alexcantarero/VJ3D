@@ -3,7 +3,22 @@ guid: 2f260e7a985d2534881470fa2e801253
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PowerUpHopperCap_Mat_v
+    second: {fileID: 2100000, guid: ba065c2a90edaa842947a6348c72ee0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PowerUpHopperEye_Mat_v
+    second: {fileID: 2100000, guid: 784ceb98f8e75864592470103689f611, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vertexColors
+    second: {fileID: 2100000, guid: 0d8013ee1ccd673428e3e346c70a3cd5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
