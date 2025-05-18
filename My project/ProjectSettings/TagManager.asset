@@ -15,6 +15,7 @@ TagManager:
   - BulletBill
   - MagnetShroom
   - +Clock
+  - HighScoreUI
   layers:
   - Default
   - TransparentFX
