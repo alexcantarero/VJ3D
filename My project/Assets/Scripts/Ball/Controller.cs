@@ -9,6 +9,13 @@ public class Controller : MonoBehaviour
     public float rotatingSpeed = 100f;
     public string paddleTag = "Paddle";
     public float maxBounceAngle = 50f; // En grados
+    public bool stuck = false; // Indica si la concha está pegada a la paleta
+
+
+    private float stuckOffsetX = 0f;
+    private float stuckOffsetZ = 0f;
+    private bool hasStuckOffset = false;
+
     private Rigidbody rb;
 
     public bool isFireMode = false; // Indica si la concha está en modo "Fire"
@@ -75,22 +82,36 @@ public class Controller : MonoBehaviour
         if (collision.gameObject.CompareTag("Block")) {
             scoreDisplay.AddPoints(pointsPerBlock);
             Debug.Log("puntos sumados!");
-            
+
             if (!isFireMode)
             {
                 // Destruir el bloque al atravesarlo
                 Debug.Log("Destruyendo bloque en modo Fire");
                 Destroy(collision.gameObject);
             }
-            else 
+            else
             {
                 return;
             }
         }
         else if (collision.gameObject.CompareTag(paddleTag))
         {
-            // Rebote en la paleta
-            CalculatePaddleBounce(collision);
+            PaddleController paddle = collision.gameObject.GetComponent<PaddleController>();
+            if (paddle != null && paddle.sticky)
+            {
+                rb.velocity = Vector3.zero; // Detener la concha
+                stuck = true;
+
+                // Guardar el offset respecto al paddle en el momento del contacto
+                Vector3 paddlePos = paddleCollider.transform.position;
+                stuckOffsetX = transform.position.x - paddlePos.x;
+                stuckOffsetZ = transform.position.z - paddlePos.z;
+                hasStuckOffset = true;
+            }
+            else
+            {
+                CalculatePaddleBounce(collision);
+            }
         }
         else
         {
@@ -107,8 +128,6 @@ public class Controller : MonoBehaviour
 
         Collider[] ballColliders = GetComponentsInChildren<Collider>();
         Collider[] paddleColliders = paddleCollider.GetComponentsInChildren<Collider>();
-
-        
 
         if (isActive)
         {
@@ -165,7 +184,6 @@ public class Controller : MonoBehaviour
         return isGodModeActive;
     }
 
-
     public void ActivateFireMode(float duration)
     {
         if (isFireMode) return; // Evitar activar el modo "Fire" si ya está activo
@@ -218,15 +236,26 @@ public class Controller : MonoBehaviour
         rb.velocity = direction.normalized * speed;
     }
 
+    void LaunchFromStuck()
+    {
+        if (paddleCollider == null) return;
+
+        Vector3 paddleCenter = paddleCollider.transform.position;
+        float paddleWidth = paddleCollider.bounds.size.x;
+        float offsetX = transform.position.x - paddleCenter.x;
+        float normalizedOffset = offsetX / (paddleWidth * 0.5f);
+        normalizedOffset = Mathf.Clamp(normalizedOffset, -1f, 1f);
+
+        float bounceAngle = normalizedOffset * maxBounceAngle;
+        float angleRad = bounceAngle * Mathf.Deg2Rad;
+
+        // Siempre hacia arriba (ajusta el signo de Z si tu juego lo requiere)
+        Vector3 direction = new Vector3(Mathf.Sin(angleRad), 0, 1 * Mathf.Cos(angleRad));
+        rb.velocity = direction.normalized * speed;
+    }
+
     void Update()
     {
-        transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime);
-
-        if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
-        {
-            rb.velocity = rb.velocity.normalized * speed;
-        }
-  
         // Toggle God Mode cuando se presiona la tecla 'G'
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -234,19 +263,47 @@ public class Controller : MonoBehaviour
             ToggleGodMode(isGodModeActive);
         }
 
-        /*if (isGodModeActive) 
-            Debug.Log("God Mode activado");
-        else
-            Debug.Log("God Mode incativo"); */
+        transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime);
+
+        if (!stuck)
+        {
+            if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
+            {
+                rb.velocity = rb.velocity.normalized * speed;
+            }
+
+        }
+        else 
+        {
+            if (paddleCollider != null && hasStuckOffset)
+            {
+                Vector3 paddlePos = paddleCollider.transform.position;
+                transform.position = new Vector3(
+                    paddlePos.x + stuckOffsetX,
+                    transform.position.y,
+                    paddlePos.z + stuckOffsetZ
+                );
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                stuck = false;
+                hasStuckOffset = false;
+                LaunchFromStuck();
+            }
+
+        }
     }
+
+
 
     void FixedUpdate()
     {
-        rb.velocity = rb.velocity.normalized * speed;
-        if (transform.position.z < -18.0f)
-        {
+            if(!stuck) rb.velocity = rb.velocity.normalized * speed;
+            if (transform.position.z < -18.0f)
+            {
 
-            Destroy(gameObject);
-        }
+                Destroy(gameObject);
+            }
+    
     }
 }

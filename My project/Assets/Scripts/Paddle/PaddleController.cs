@@ -15,6 +15,7 @@ public class PaddleController : MonoBehaviour
     public GameObject RBillPoint;
 
     public bool tripled = false;
+    public bool sticky = false;
     public bool isBig = false;
 
     private float yPosition;
@@ -64,10 +65,16 @@ public class PaddleController : MonoBehaviour
             if (isBig) ShrinkPaddleX();
         }
         else if (other.gameObject.tag == "BulletBill")
-        { 
+        {
             Debug.Log("BulletBill");
             StartCoroutine(ShootBulletBill());
 
+        }
+        else if (other.gameObject.tag == "MagnetShroom")
+        {
+            Debug.Log("MagnetShroom");
+            StickyPaddle();
+        
         }
             Destroy(other.gameObject); // Destruir el powerup
     }
@@ -171,6 +178,11 @@ public class PaddleController : MonoBehaviour
                 yield return new WaitForSeconds(2f);
         }
 
+    }
+
+    void StickyPaddle()
+    {
+        sticky = true;
     }
 
 
