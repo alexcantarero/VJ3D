@@ -10311,7 +10311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -214.23656}
+  m_AnchoredPosition: {x: 250, y: -338.36328}
   m_SizeDelta: {x: 415.6, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182592321
@@ -10880,8 +10880,9 @@ GameObject:
   - component: {fileID: 1247535232}
   - component: {fileID: 1247535234}
   - component: {fileID: 1247535233}
+  - component: {fileID: 1247535235}
   m_Layer: 5
-  m_Name: HighScore
+  m_Name: HighScorePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10903,7 +10904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -284.33655}
+  m_AnchoredPosition: {x: 250, y: -408.4633}
   m_SizeDelta: {x: 415.6, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1247535233
@@ -11003,6 +11004,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247535231}
   m_CullTransparentMesh: 1
+--- !u!114 &1247535235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247535231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649d565653c59c24487944aa0192ac01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScoreText: {fileID: 1247535233}
+  scoreDisplay: {fileID: 782801914}
 --- !u!1001 &1260470671
 PrefabInstance:
   m_ObjectHideFlags: 0

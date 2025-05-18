@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class HighestScore : MonoBehaviour
+public class HighScoreDisplay : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI highScoreText;
+    public ScoreDisplay scoreDisplay;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        scoreDisplay = FindObjectOfType<ScoreDisplay>();
+        highScoreText.text = scoreDisplay.GetHighScore().ToString();
     }
 }
