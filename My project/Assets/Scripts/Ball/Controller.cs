@@ -80,10 +80,6 @@ public class Controller : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (isGodModeActive)
-        {
-            return;
-        }
         if (collision.gameObject.CompareTag("Block")) {
             scoreDisplay.AddPoints(pointsPerBlock);
             //Debug.Log("puntos sumados!");
@@ -99,7 +95,7 @@ public class Controller : MonoBehaviour
                 return;
             }
         }
-        else if (collision.gameObject.CompareTag(paddleTag))
+        else if (!isGodModeActive && collision.gameObject.CompareTag(paddleTag))
         {
             PaddleController paddle = collision.gameObject.GetComponent<PaddleController>();
             if (paddle != null && paddle.sticky)
