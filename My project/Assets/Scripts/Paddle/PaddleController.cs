@@ -182,7 +182,13 @@ public class PaddleController : MonoBehaviour
 
     void StickyPaddle()
     {
+
+        foreach (Controller shell in FindObjectsOfType<Controller>())
+        {
+            shell.stuck = true; // Cambia la variable stuck a true
+        }
         sticky = true;
+
     }
 
 
