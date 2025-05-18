@@ -39,6 +39,11 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         paddleCollider = GameObject.FindGameObjectWithTag(paddleTag).GetComponent<Collider>();
+        if(paddleCollider == null)
+        {
+            Debug.LogError("No se encontró el objeto con la etiqueta " + paddleTag);
+        }
+        else Debug.Log(paddleCollider.gameObject.name);
         invisibleWall = GameObject.Find("invisibleWall");
         scoreDisplay = GameObject.Find("score").GetComponent<ScoreDisplay>();
 
@@ -81,12 +86,12 @@ public class Controller : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Block")) {
             scoreDisplay.AddPoints(pointsPerBlock);
-            Debug.Log("puntos sumados!");
+            //Debug.Log("puntos sumados!");
 
             if (!isFireMode)
             {
                 // Destruir el bloque al atravesarlo
-                Debug.Log("Destruyendo bloque en modo Fire");
+                //Debug.Log("Destruyendo bloque en modo Fire");
                 Destroy(collision.gameObject);
             }
             else
@@ -99,14 +104,18 @@ public class Controller : MonoBehaviour
             PaddleController paddle = collision.gameObject.GetComponent<PaddleController>();
             if (paddle != null && paddle.sticky)
             {
-                rb.velocity = Vector3.zero; // Detener la concha
+                rb.velocity = Vector3.zero;
                 stuck = true;
 
-                // Guardar el offset respecto al paddle en el momento del contacto
+                // Usa el punto de contacto real
                 Vector3 paddlePos = paddleCollider.transform.position;
-                stuckOffsetX = transform.position.x - paddlePos.x;
-                stuckOffsetZ = transform.position.z - paddlePos.z;
+                Vector3 contactPoint = collision.contacts[0].point;
+                stuckOffsetX = contactPoint.x - paddlePos.x;
+                stuckOffsetZ = contactPoint.z - paddlePos.z;
                 hasStuckOffset = true;
+
+                // Coloca la concha en el punto de contacto
+                transform.position = new Vector3(contactPoint.x, transform.position.y, contactPoint.z);
             }
             else
             {
@@ -238,9 +247,11 @@ public class Controller : MonoBehaviour
 
     void LaunchFromStuck()
     {
+
         if (paddleCollider == null) return;
 
         Vector3 paddleCenter = paddleCollider.transform.position;
+        //Debug.Log(paddleCenter);
         float paddleWidth = paddleCollider.bounds.size.x;
         float offsetX = transform.position.x - paddleCenter.x;
         float normalizedOffset = offsetX / (paddleWidth * 0.5f);
@@ -248,9 +259,9 @@ public class Controller : MonoBehaviour
 
         float bounceAngle = normalizedOffset * maxBounceAngle;
         float angleRad = bounceAngle * Mathf.Deg2Rad;
-
-        // Siempre hacia arriba (ajusta el signo de Z si tu juego lo requiere)
-        Vector3 direction = new Vector3(Mathf.Sin(angleRad), 0, 1 * Mathf.Cos(angleRad));
+        //Debug.Log($"offsetX: {offsetX}, normalizedOffset: {normalizedOffset}, bounceAngle: {bounceAngle}");
+        float directionZ = 1f; // Siempre hacia arriba
+        Vector3 direction = new Vector3(Mathf.Sin(angleRad), 0, Mathf.Cos(angleRad) * directionZ);
         rb.velocity = direction.normalized * speed;
     }
 
@@ -265,15 +276,13 @@ public class Controller : MonoBehaviour
 
         transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime);
 
-        if (!stuck)
+        if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
         {
-            if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
-            {
-                rb.velocity = rb.velocity.normalized * speed;
-            }
-
+            rb.velocity = rb.velocity.normalized * speed;
         }
-        else 
+
+        
+        if(stuck)
         {
             if (paddleCollider != null && hasStuckOffset)
             {

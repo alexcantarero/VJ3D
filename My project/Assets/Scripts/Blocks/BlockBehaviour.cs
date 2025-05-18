@@ -10,6 +10,7 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject MegaMushroomPrefab;
     public GameObject MiniSetaPrefab;
     public GameObject BulletBillPWPrefab;
+    public GameObject MagnetSetaPrefab;
 
     private PaddleController pC;
     private Controller c;
@@ -35,7 +36,7 @@ public class BlockBehaviour : MonoBehaviour
             if (valor == 8)
             {
                 Debug.Log("Valor: " + valor);
-                int powerup = Random.Range(0, 4);
+                int powerup = Random.Range(0, 5);
 
                 switch (powerup) {
                     case 0: //Caso tripled
@@ -54,6 +55,10 @@ public class BlockBehaviour : MonoBehaviour
                         break;
                     case 3:
                         spawnBulletBillPowerup();
+                        break;
+                    case 4:
+                        if (!pC.sticky) spawnPowerupMagnetSeta();
+                        else spawnBulletBillPowerup();
                         break;
 
                 }
@@ -122,6 +127,19 @@ public class BlockBehaviour : MonoBehaviour
         {
             Vector3 spawnPosition = transform.position;
             Instantiate(BulletBillPWPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("BulletBill no se ha asignado.");
+        }
+    }
+
+    void spawnPowerupMagnetSeta()
+    {
+        if (MagnetSetaPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(MagnetSetaPrefab, spawnPosition, Quaternion.identity);
         }
         else
         {

@@ -170,3 +170,4 @@ MonoBehaviour:
   MegaMushroomPrefab: {fileID: 5527133608309765272, guid: 21cfa78c1d380814dac563290b7c63d0, type: 3}
   MiniSetaPrefab: {fileID: 1370021685209244747, guid: f5893f4a231ae034495c13a83a2124bf, type: 3}
   BulletBillPWPrefab: {fileID: 5969807527872215153, guid: 186addae4c15aa24b956dce0b80ef454, type: 3}
+  MagnetSetaPrefab: {fileID: 3190873536965136186, guid: 29f3bbc7d202fb543af680022e014bd1, type: 3}
