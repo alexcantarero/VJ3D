@@ -3,8 +3,8 @@ using UnityEngine;
 public class MouseCameraOrbit : MonoBehaviour
 {
     public Transform target;
-    public float startDistance = 50f;
-    public float endDistance = 45f;
+    public float startDistance = 95f;
+    public float endDistance = 90f;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
     public float yMinLimit = -20f;
@@ -31,7 +31,7 @@ public class MouseCameraOrbit : MonoBehaviour
         y = -15f;
 
         targetX = 0f;
-        targetY = 50f;
+        targetY = 32f;
 
         if (GetComponent<Rigidbody>())
             GetComponent<Rigidbody>().freezeRotation = true;
