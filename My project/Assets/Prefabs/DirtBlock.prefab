@@ -171,3 +171,5 @@ MonoBehaviour:
   MiniSetaPrefab: {fileID: 1370021685209244747, guid: f5893f4a231ae034495c13a83a2124bf, type: 3}
   BulletBillPWPrefab: {fileID: 5969807527872215153, guid: 186addae4c15aa24b956dce0b80ef454, type: 3}
   MagnetSetaPrefab: {fileID: 3190873536965136186, guid: 29f3bbc7d202fb543af680022e014bd1, type: 3}
+  PlusClockPrefab: {fileID: 2424096538433123289, guid: a3dccd3d6baf1974ca5f60eee301fbe5, type: 3}
+  MinusClockPrefab: {fileID: 782031980877882091, guid: 282b25e5954df2046a06a0dc16863fa0, type: 3}

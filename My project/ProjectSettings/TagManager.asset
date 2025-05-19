@@ -17,6 +17,7 @@ TagManager:
   - +Clock
   - HighScoreUI
   - GAMEOVERUI
+  - -Clock
   layers:
   - Default
   - TransparentFX

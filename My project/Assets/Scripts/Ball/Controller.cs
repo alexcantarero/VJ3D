@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour
     public string paddleTag = "Paddle";
     public float maxBounceAngle = 50f; // En grados
     public bool stuck = false; // Indica si la concha está pegada a la paleta
+    public bool isSpedup = false;
+    public bool isSlowDown = false;
 
 
     private float stuckOffsetX = 0f;

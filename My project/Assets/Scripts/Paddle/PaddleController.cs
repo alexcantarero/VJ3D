@@ -74,9 +74,20 @@ public class PaddleController : MonoBehaviour
         {
             Debug.Log("MagnetShroom");
             StickyPaddle();
-        
+
         }
-            Destroy(other.gameObject); // Destruir el powerup
+        else if (other.gameObject.tag == "+Clock")
+        { 
+            Debug.Log("+Clock");
+            SpeedUpShells();
+        }
+        else if (other.gameObject.tag == "-Clock")
+        {
+            Debug.Log("-Clock");
+            SlowShells();
+        }
+
+        Destroy(other.gameObject); // Destruir el powerup
     }
 
     void SpawnTwoShells(GameObject shell)
@@ -190,6 +201,34 @@ public class PaddleController : MonoBehaviour
         sticky = true;
 
     }
+
+    void SpeedUpShells()
+    {
+        Controller[] shells = FindObjectsOfType<Controller>();
+        foreach (Controller shell in shells)
+        {
+            if (!shell.isSpedup)
+            {
+                shell.speed *= 1.3f; // Aumenta la velocidad de las conchas un 30%
+                shell.isSpedup = true;
+            }
+        }
+    }
+
+    void SlowShells()
+    {
+        Controller[] shells = FindObjectsOfType<Controller>();
+        foreach (Controller shell in shells)
+        {
+            if (!shell.isSlowDown)
+            {
+                shell.speed *= 0.7f; // Disminuye la velocidad de las conchas un 30%
+                if(!shell.isSpedup) shell.isSlowDown = true; //Si iba a velocidad normal, decelera
+                else shell.isSpedup = false; // Si estaba acelerada, se desactiva la aceleración
+            }
+        }
+    }
+
 
 
     void MovePaddle()

@@ -11,6 +11,8 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject MiniSetaPrefab;
     public GameObject BulletBillPWPrefab;
     public GameObject MagnetSetaPrefab;
+    public GameObject PlusClockPrefab;
+    public GameObject MinusClockPrefab;
 
     private PaddleController pC;
     private Controller c;
@@ -36,7 +38,7 @@ public class BlockBehaviour : MonoBehaviour
             if (valor == 8)
             {
                 Debug.Log("Valor: " + valor);
-                int powerup = Random.Range(0, 5);
+                int powerup = Random.Range(0, 7);
 
                 switch (powerup) {
                     case 0: //Caso tripled
@@ -59,6 +61,12 @@ public class BlockBehaviour : MonoBehaviour
                     case 4:
                         if (!pC.sticky) spawnPowerupMagnetSeta();
                         else spawnBulletBillPowerup();
+                        break;
+                    case 5:
+                        spawnPlusClock();
+                        break;
+                    case 6:
+                        spawnMinusClock();
                         break;
 
                 }
@@ -144,6 +152,32 @@ public class BlockBehaviour : MonoBehaviour
         else
         {
             Debug.LogError("BulletBill no se ha asignado.");
+        }
+    }
+
+    void spawnPlusClock()
+    {
+        if (PlusClockPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(PlusClockPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("PlusClock no se ha asignado.");
+        }
+    }
+
+    void spawnMinusClock()
+    {
+        if (MinusClockPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(MinusClockPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("MinusClock no se ha asignado.");
         }
     }
 
