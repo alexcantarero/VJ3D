@@ -7402,7 +7402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &865916359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7447,7 +7447,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 7.24
     y: 0
-    width: 3
+    width: 3.36
     height: 3
 --- !u!222 &865916361
 CanvasRenderer:
