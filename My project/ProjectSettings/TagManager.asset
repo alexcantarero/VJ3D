@@ -16,6 +16,7 @@ TagManager:
   - MagnetShroom
   - +Clock
   - HighScoreUI
+  - GAMEOVERUI
   layers:
   - Default
   - TransparentFX
