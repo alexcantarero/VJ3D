@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public ScoreDisplay scoreDisplay;
+    public GameObject panel;
+
 
     void Start()
     {
@@ -16,11 +18,14 @@ public class GameManager : MonoBehaviour
 
         if (scoreDisplay.IsNewHighScore())
         {
-            GameObject panel = GameObject.FindGameObjectWithTag("HighScoreUI");
             if (panel != null)
             {
                 panel.SetActive(true);
                 Debug.Log("High score panel activated.");
+            }
+            else
+            {
+                Debug.LogWarning("High score panel not found.");
             }
         }
     }
