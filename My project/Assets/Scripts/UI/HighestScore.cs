@@ -12,4 +12,14 @@ public class HighScoreDisplay : MonoBehaviour
         scoreDisplay = FindObjectOfType<ScoreDisplay>();
         highScoreText.text = scoreDisplay.GetHighScore().ToString();
     }
+
+    public void UpdateHighScoreText()
+    {
+        if (highScoreText != null)
+        {
+            int score = PlayerPrefs.GetInt("HighScore", 0);
+            highScoreText.text = score.ToString();
+        }
+    }
+
 }

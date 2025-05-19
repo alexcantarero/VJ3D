@@ -33,4 +33,10 @@ public class ScoreDisplay : MonoBehaviour
     {
         return highScore;
     }
+
+    public bool IsNewHighScore()
+    {
+        return score >= highScore;
+    }
+
 }
