@@ -18,6 +18,7 @@ TagManager:
   - HighScoreUI
   - GAMEOVERUI
   - -Clock
+  - Star
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - UI
   - Shell
   - BulletBill
-  - 
+  - Camera
   - 
   - 
   - 

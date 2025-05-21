@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     public ScoreDisplay scoreDisplay;
     public GameObject panel;
 
+    public bool starSpawned = false;
+
 
     void Start()
     {
