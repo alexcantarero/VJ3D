@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class UIButtonSelector : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class UIButtonSelector : MonoBehaviour
             currentIndex = (currentIndex - 1 + panels.Count) % panels.Count;
             HighlightSelectedPanel();
         }
+        else if (Input.GetKeyDown(KeyCode.Return)) 
+        {
+            ActivateSelectedPanel();
+        }
     }
 
     void HighlightSelectedPanel()
@@ -41,5 +46,17 @@ public class UIButtonSelector : MonoBehaviour
                 panels[i].localScale = Vector3.one * normalScale;
             }
         }
+    }
+
+    void ActivateSelectedPanel()
+    {
+        string selectedName = panels[currentIndex].gameObject.name;
+
+        if (selectedName == "MenuButton") 
+        {
+            SceneManager.LoadScene("MainMenu"); 
+        }
+        
+        Debug.Log("Activado: " + selectedName);
     }
 }
