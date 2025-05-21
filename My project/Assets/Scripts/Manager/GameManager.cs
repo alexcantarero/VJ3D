@@ -29,13 +29,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Pause Game");
-            // Aquí puedes agregar la lógica para pausar el juego o mostrar un menú
-        }
-    }
 }
