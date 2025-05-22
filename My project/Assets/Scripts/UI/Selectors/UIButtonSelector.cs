@@ -43,7 +43,7 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
         if (selectedName == "MenuButton")
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("LevelsMenu");
         }
         else if (selectedName == "PlayAgainButton")
         {
@@ -69,6 +69,30 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         else if (selectedName == "Lev5")
         {
             SceneManager.LoadScene("Level5");
+        }
+        else if (selectedName == "PlayButton")
+        {
+            SceneManager.LoadScene("LevelsMenu");
+        }
+        else if (selectedName == "InstructionsButton")
+        {
+            SceneManager.LoadScene("Instructions");
+        }
+        else if (selectedName == "OptionsButton") //
+        {
+            SceneManager.LoadScene("Options");
+        }
+        else if (selectedName == "ExitButton")
+        {
+            Application.Quit();
+        }
+        else if (selectedName == "CreditsButton") //
+        {
+            SceneManager.LoadScene("Credits");
+        }
+        else if (selectedName == "BackButton") 
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
