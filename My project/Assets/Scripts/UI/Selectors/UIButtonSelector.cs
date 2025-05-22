@@ -50,7 +50,25 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
             // Reload the current scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-        //Debug.Log("Activado: " + selectedName);
+        else if (selectedName == "Lev1")
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        else if (selectedName == "Lev2")
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if (selectedName == "Lev3")
+        {
+            SceneManager.LoadScene("Level3");
+        }
+        else if (selectedName == "Lev4")
+        {
+            SceneManager.LoadScene("Level4");
+        }
+        else if (selectedName == "Lev5")
+        {
+            SceneManager.LoadScene("Level5");
+        }
     }
 }
