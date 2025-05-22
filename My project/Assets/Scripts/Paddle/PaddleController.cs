@@ -60,6 +60,11 @@ public class PaddleController : MonoBehaviour
             Debug.Log("FireFlower");
             TurnShellRed();
         }
+        else if (other.gameObject.tag == "IceFlower")
+        { 
+            Debug.Log("IceFlower");
+            TurnShellGreen();
+        }
         else if (other.gameObject.tag == "MegaMushroom")
         {
             Debug.Log("MegaMushroom");
@@ -156,8 +161,18 @@ public class PaddleController : MonoBehaviour
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
         foreach (Controller shell in shells)
         {
-            shell.ActivateFireMode(5f); // Activar el modo "Fire" durante 3 segundos
+            shell.ActivateFireMode(); // Activar el modo "Fire" durante 3 segundos
         }
+    }
+
+    void TurnShellGreen()
+    {
+        Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activasç
+        foreach (Controller shell in shells)
+        {
+            shell.DeactivateFireMode(); // Activar el modo "Ice" durante 3 segundos
+        }
+
     }
 
     void AugmentPaddleX()

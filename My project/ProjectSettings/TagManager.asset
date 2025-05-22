@@ -19,6 +19,7 @@ TagManager:
   - GAMEOVERUI
   - -Clock
   - Star
+  - IceFlower
   layers:
   - Default
   - TransparentFX

@@ -202,7 +202,7 @@ public class Controller : MonoBehaviour
         return isGodModeActive;
     }
 
-    public void ActivateFireMode(float duration)
+    public void ActivateFireMode()
     {
         if (isFireMode) return;
 
@@ -218,12 +218,10 @@ public class Controller : MonoBehaviour
             shellBackRenderer.materials[1].mainTexture = fireTexture;
         }
 
-        StartCoroutine(DeactivateFireMode(duration));
     }
 
-    private IEnumerator DeactivateFireMode(float duration)
+    public void DeactivateFireMode()
     {
-        yield return new WaitForSeconds(duration);
         isFireMode = false;
         GetComponent<Renderer>().material = originalMaterial;
         gameObject.layer = LayerMask.NameToLayer("Default");

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PowerUpBehaviour : MonoBehaviour
 {
-
-    
-    
     public float rotationSpeed = 100f;
     //Vector3 direction = new Vector3(0, 0, -1);
     public float speed = 3f;

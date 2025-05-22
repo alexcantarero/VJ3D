@@ -9,6 +9,7 @@ public class BlockBehaviour : MonoBehaviour
 
     public GameObject TripleShroomPrefab;
     public GameObject FireFlowerPrefab;
+    public GameObject IceFlowerPrefab;
     public GameObject MegaMushroomPrefab;
     public GameObject MiniSetaPrefab;
     public GameObject BulletBillPWPrefab;
@@ -73,7 +74,9 @@ public class BlockBehaviour : MonoBehaviour
                         if (!pC.tripled) spawnPowerupSeta();
                         break;
                     case 1:
-                        spawnPowerupFireFlower();
+                        Controller shell1 = FindObjectOfType<Controller>();
+                        if (!shell1.isFireMode) spawnPowerupFireFlower();
+                        else spawnPowerupIceFlower();
                         break;
                     case 2:
                         if (!pC.isBig) spawnPowerupMegaMushroom();
@@ -125,6 +128,23 @@ public class BlockBehaviour : MonoBehaviour
             Debug.LogError("Fireflower no se ha asignado.");
         }
     }
+
+    void spawnPowerupIceFlower()
+    {
+        if (IceFlowerPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(IceFlowerPrefab, spawnPosition, Quaternion.identity);
+        }
+        else 
+        {
+            Debug.LogError("IceFlower no se ha asignado.");
+        }
+    
+    
+    
+    }
+
     void spawnPowerupMegaMushroom()
     {
 
