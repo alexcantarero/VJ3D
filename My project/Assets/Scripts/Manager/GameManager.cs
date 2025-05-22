@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public GameObject panel;
 
     public GameObject MenuPausa;
+    public GameObject WinMenu;
+    public GameObject LooseMenu;
 
     public bool starSpawned = false;
     public bool isPaused = false;
@@ -49,6 +51,20 @@ public class GameManager : MonoBehaviour
         MenuPausa.SetActive(false);
     }
 
+    public void LooseGame()
+    {
+        Debug.Log("Loose Game!");
+        LooseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("Win Game!");
+        WinMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) 
@@ -56,6 +72,14 @@ public class GameManager : MonoBehaviour
             isPaused = !isPaused;
             if(!isPaused) PauseGame();
             else ResumeGame();
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && !LooseMenu.activeSelf)
+        {
+            LooseGame();
+        }
+        if (Input.GetKeyDown(KeyCode.W) && !WinMenu.activeSelf)
+        {
+            WinGame();
         }
     }
 }
