@@ -13,7 +13,6 @@ public class Controller : MonoBehaviour
     public bool isSpedup = false;
     public bool isSlowDown = false;
 
-
     private float stuckOffsetX = 0f;
     private float stuckOffsetZ = 0f;
     private bool hasStuckOffset = false;
@@ -256,6 +255,7 @@ public class Controller : MonoBehaviour
         normalizedOffset = Mathf.Clamp(normalizedOffset, -1f, 1f);
 
         float bounceAngle = normalizedOffset * maxBounceAngle;
+        Debug.Log("bounceAngle: " + bounceAngle);
         float angleRad = bounceAngle * Mathf.Deg2Rad;
         //Debug.Log($"offsetX: {offsetX}, normalizedOffset: {normalizedOffset}, bounceAngle: {bounceAngle}");
         float directionZ = 1f; // Siempre hacia arriba

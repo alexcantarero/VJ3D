@@ -5,6 +5,8 @@ using UnityEngine;
 public class BlockBehaviour : MonoBehaviour
 {
 
+    private GameManager gm;
+
     public GameObject TripleShroomPrefab;
     public GameObject FireFlowerPrefab;
     public GameObject MegaMushroomPrefab;
@@ -13,6 +15,7 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject MagnetSetaPrefab;
     public GameObject PlusClockPrefab;
     public GameObject MinusClockPrefab;
+    public GameObject StarPrefab;
 
     private PaddleController pC;
     private Controller c;
@@ -21,6 +24,13 @@ public class BlockBehaviour : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         pC = player.GetComponent<PaddleController>();
+
+        GameObject gameManager = GameObject.Find("GameManager");
+        gm = gameManager.GetComponent<GameManager>();
+
+
+        GameObject shell = GameObject.FindGameObjectWithTag("Shell"); //Coge cualquier shell
+
         c = player.GetComponent<Controller>();
     }
     
@@ -33,12 +43,20 @@ public class BlockBehaviour : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
-  
-            int valor = Random.Range(0,9); //1/8 de chance
-            if (valor == 8)
+            if (pC.percentageBlocksDestroyed >= 95 && !gm.starSpawned)
+            {
+                spawnStar();
+                Debug.Log("Estrella");
+                gm.starSpawned = true;
+                Destroy(gameObject, 0.1f);
+                return;
+            }
+
+            int valor = Random.Range(0,5);
+            if (valor == 3)
             {
                 Debug.Log("Valor: " + valor);
-                int powerup = Random.Range(0, 7);
+                int powerup = Random.Range(0, 6);
 
                 switch (powerup) {
                     case 0: //Caso tripled
@@ -63,10 +81,12 @@ public class BlockBehaviour : MonoBehaviour
                         else spawnBulletBillPowerup();
                         break;
                     case 5:
-                        spawnPlusClock();
-                        break;
-                    case 6:
-                        spawnMinusClock();
+                        Controller shell = FindObjectOfType<Controller>();
+                        if (!shell.isSpedup && !shell.isSlowDown)
+                            spawnPlusClock();
+                        else if(shell.isSpedup) spawnMinusClock();
+                        else if (shell.isSlowDown) spawnPlusClock();
+                        else spawnMinusClock();
                         break;
 
                 }
@@ -181,9 +201,22 @@ public class BlockBehaviour : MonoBehaviour
         }
     }
 
+    void spawnStar()
+    {
+        if (StarPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(StarPrefab, spawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Star no se ha asignado.");
+        }
+    }
+
     void Update()
     {
-
+        
     }
 
 

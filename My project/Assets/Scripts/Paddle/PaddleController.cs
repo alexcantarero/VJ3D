@@ -24,6 +24,9 @@ public class PaddleController : MonoBehaviour
     private float minXPosition = -16.42f;
     private float maxXPosition = 20f;
 
+    public int initialBlockCount = 0;
+    public float percentageBlocksDestroyed = 0;
+
 
     void Start()
     {
@@ -38,6 +41,10 @@ public class PaddleController : MonoBehaviour
 
         yPosition = transform.position.y;
         zPosition = transform.position.z;
+
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+        initialBlockCount = blocks.Length;
+
 
     }
 
@@ -77,7 +84,7 @@ public class PaddleController : MonoBehaviour
 
         }
         else if (other.gameObject.tag == "+Clock")
-        { 
+        {
             Debug.Log("+Clock");
             SpeedUpShells();
         }
@@ -85,6 +92,11 @@ public class PaddleController : MonoBehaviour
         {
             Debug.Log("-Clock");
             SlowShells();
+        }
+        else if (other.gameObject.tag == "Star")
+        {
+            Debug.Log("Star");
+            FinishGame();
         }
 
         Destroy(other.gameObject); // Destruir el powerup
@@ -229,6 +241,12 @@ public class PaddleController : MonoBehaviour
         }
     }
 
+    void FinishGame()
+    {
+        Debug.Log("¡Juego terminado!");
+        Time.timeScale = 0f; // Pausar el juego
+    }
+
 
 
     void MovePaddle()
@@ -271,9 +289,9 @@ public class PaddleController : MonoBehaviour
         }
         if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
 
-
-
-
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+        if (blocks.Length == 0) FinishGame();
+        percentageBlocksDestroyed = (initialBlockCount - blocks.Length) / (float)initialBlockCount * 100f;
 
     }
 }
