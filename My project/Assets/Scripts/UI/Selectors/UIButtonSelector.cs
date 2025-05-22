@@ -82,10 +82,6 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         {
             SceneManager.LoadScene("Options");
         }
-        else if (selectedName == "ExitButton")
-        {
-            Application.Quit();
-        }
         else if (selectedName == "CreditsButton") //
         {
             SceneManager.LoadScene("Credits");
