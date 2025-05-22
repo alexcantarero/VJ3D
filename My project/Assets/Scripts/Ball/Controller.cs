@@ -37,6 +37,9 @@ public class Controller : MonoBehaviour
     public int pointsPerBlock = 100;
 
 
+    private List<Collider> ignoredBlockColliders = new List<Collider>();
+
+
     private void Awake()
     {
         paddleCollider = GameObject.FindGameObjectWithTag(paddleTag).GetComponent<Collider>();
@@ -129,6 +132,15 @@ public class Controller : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (isFireMode && other.CompareTag("Block"))
+        {
+            scoreDisplay.AddPoints(pointsPerBlock);
+            Destroy(other.gameObject);
+        }
+    }
+
     public void ToggleGodMode(bool isActive)
     {
 
@@ -192,18 +204,20 @@ public class Controller : MonoBehaviour
 
     public void ActivateFireMode(float duration)
     {
-        if (isFireMode) return; // Evitar activar el modo "Fire" si ya está activo
+        if (isFireMode) return;
 
         isFireMode = true;
-        GetComponent<Renderer>().material = fireMaterial; // Cambiar a material rojo
+        GetComponent<Renderer>().material = fireMaterial;
+        gameObject.layer = LayerMask.NameToLayer("FireShell");
 
-        // Cambiar la textura del material en el índice 1 de Shell_back
+        // Ignorar colisiones físicas con los bloques
+        SetFireModeCollisions(true);
+
         if (shellBackRenderer != null && fireTexture != null && shellBackRenderer.materials.Length > 1)
         {
             shellBackRenderer.materials[1].mainTexture = fireTexture;
         }
 
-        // Desactivar el modo "Fire" después de la duración
         StartCoroutine(DeactivateFireMode(duration));
     }
 
@@ -211,12 +225,37 @@ public class Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         isFireMode = false;
-        GetComponent<Renderer>().material = originalMaterial; // Restaurar el material original
+        GetComponent<Renderer>().material = originalMaterial;
+        gameObject.layer = LayerMask.NameToLayer("Default");
 
-        // Restaurar la textura original del material en el índice 1 de Shell_back
         if (shellBackRenderer != null && originalTexture != null && shellBackRenderer.materials.Length > 1)
         {
             shellBackRenderer.materials[1].mainTexture = originalTexture;
+        }
+
+        // Restaurar colisiones físicas con los bloques
+        Collider myCollider = GetComponent<Collider>();
+        foreach (Collider blockCollider in ignoredBlockColliders)
+        {
+            if (blockCollider != null)
+                Physics.IgnoreCollision(myCollider, blockCollider, false);
+        }
+        ignoredBlockColliders.Clear();
+    }
+
+    private void SetFireModeCollisions(bool ignore)
+    {
+        Collider myCollider = GetComponent<Collider>();
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+        foreach (GameObject block in blocks)
+        {
+            Collider blockCollider = block.GetComponent<Collider>();
+            if (blockCollider != null)
+            {
+                Physics.IgnoreCollision(myCollider, blockCollider, ignore);
+                if (ignore && !ignoredBlockColliders.Contains(blockCollider))
+                    ignoredBlockColliders.Add(blockCollider);
+            }
         }
     }
 
@@ -305,12 +344,35 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-            if(!stuck) rb.velocity = rb.velocity.normalized * speed;
-            if (transform.position.z < -18.0f)
+        if (!stuck) rb.velocity = rb.velocity.normalized * speed;
+        if (transform.position.z < -18.0f)
+        {
+            FindObjectOfType<GameManager>().GameOver();
+            Destroy(gameObject);
+        }
+        if (isFireMode)
+        {
+            //Creo un radio de detección
+            float radioDeteccion = sC != null ? sC.radius * transform.localScale.x + 0.1f : 1.1f;
+            Collider[] hits = Physics.OverlapSphere(transform.position, radioDeteccion);
+            //Miro si colisiona con un bloque
+
+            foreach (Collider hit in hits)
             {
-                FindObjectOfType<GameManager>().GameOver();
-                Destroy(gameObject);
+                if (hit.CompareTag("Block"))
+                {
+                    scoreDisplay.AddPoints(pointsPerBlock);
+                    BlockBehaviour blockBehaviour = hit.GetComponent<BlockBehaviour>();
+                    if (blockBehaviour != null)
+                    {
+                        blockBehaviour.DestroyByShell();
+                    }
+                    else
+                    {
+                        Destroy(hit.gameObject);
+                    }
+                }
             }
-    
+        }
     }
 }

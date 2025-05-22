@@ -20,6 +20,8 @@ public class BlockBehaviour : MonoBehaviour
     private PaddleController pC;
     private Controller c;
 
+    private bool isBeingDestroyed = false;
+
     void Start()
     {
         GameObject player = GameObject.Find("Player");
@@ -43,35 +45,39 @@ public class BlockBehaviour : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
-            if (pC.percentageBlocksDestroyed >= 95 && !gm.starSpawned)
-            {
-                spawnStar();
-                Debug.Log("Estrella");
-                gm.starSpawned = true;
-                Destroy(gameObject, 0.1f);
-                return;
-            }
+            DestroyByShell();
+        }
+        
+    }
 
-            int valor = Random.Range(0,5);
+    public void DestroyByShell()
+    {
+        if (isBeingDestroyed) return; // Evita múltiples ejecuciones
+        isBeingDestroyed = true;
+
+        // Lógica de powerups y estrella para modo fuego
+        if (pC.percentageBlocksDestroyed >= 95 && !gm.starSpawned)
+        {
+            spawnStar();
+            gm.starSpawned = true;
+        }
+        else
+        {
+            int valor = Random.Range(0, 5);
             if (valor == 3)
             {
-                Debug.Log("Valor: " + valor);
                 int powerup = Random.Range(0, 6);
-
-                switch (powerup) {
-                    case 0: //Caso tripled
+                switch (powerup)
+                {
+                    case 0:
                         if (!pC.tripled) spawnPowerupSeta();
                         break;
-
-                    case 1: //Caso fireFlower
+                    case 1:
                         spawnPowerupFireFlower();
                         break;
-
-                    case 2: //Caso isBig
+                    case 2:
                         if (!pC.isBig) spawnPowerupMegaMushroom();
-                        else {
-                            spawnPowerupMiniSeta();
-                        }
+                        else spawnPowerupMiniSeta();
                         break;
                     case 3:
                         spawnBulletBillPowerup();
@@ -84,18 +90,15 @@ public class BlockBehaviour : MonoBehaviour
                         Controller shell = FindObjectOfType<Controller>();
                         if (!shell.isSpedup && !shell.isSlowDown)
                             spawnPlusClock();
-                        else if(shell.isSpedup) spawnMinusClock();
+                        else if (shell.isSpedup) spawnMinusClock();
                         else if (shell.isSlowDown) spawnPlusClock();
                         else spawnMinusClock();
                         break;
-
                 }
             }
-            Destroy(gameObject, 0.1f);
         }
-        
+        Destroy(gameObject, 0.1f);
     }
-
     void spawnPowerupSeta()
     {
         if (TripleShroomPrefab != null)
@@ -216,7 +219,7 @@ public class BlockBehaviour : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
 
