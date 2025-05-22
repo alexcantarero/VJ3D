@@ -25,6 +25,13 @@ public class MouseCameraOrbit : MonoBehaviour
 
     void Start()
     {
+        if (target == null)
+        {
+            Debug.LogWarning("Camera target not assigned.");
+            return;
+        }
+
+        // Reset all transition-related variables
         currentDistance = startDistance;
 
         x = 90f;
@@ -38,19 +45,27 @@ public class MouseCameraOrbit : MonoBehaviour
 
         UpdateCameraPosition();
 
-        Time.timeScale = 0f; // Escena empieza pausada
+        // Reset transition state
+        hasStarted = true;
+        isAutoRotating = true;
+        autoRotateTime = 0f;
+
+        // Pause the game to allow transition
+        Time.timeScale = 0f;
     }
+
+
 
     void Update()
     {
-        if (!hasStarted && Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             hasStarted = true;
             isAutoRotating = true;
             autoRotateTime = 0f;
             Time.timeScale = 0f; // Sigue pausado, animación corre con unscaledDeltaTime
         }
-
+        Debug.Log("Current Distance: " + currentDistance);
         if (isAutoRotating && target)
         {
             autoRotateTime += Time.unscaledDeltaTime / 2;

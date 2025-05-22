@@ -1,62 +1,56 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class UIButtonSelector : MonoBehaviour
+public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
 {
-    public List<RectTransform> panels;  // Arrastra los paneles aquí en el Inspector
     public float selectedScale = 1.2f;
-    public float normalScale = 1f;
+    public Vector2 normalScale = new Vector2(2.24f, 1f);
 
-    private int currentIndex = 0;
+    private RectTransform rectTransform;
 
-    void Start()
+    void Awake()
     {
-        HighlightSelectedPanel();
+        rectTransform = GetComponent<RectTransform>();
+        rectTransform.localScale = new Vector3(normalScale.x, normalScale.y, 1f);
     }
 
-    void Update()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            currentIndex = (currentIndex + 1) % panels.Count;
-            HighlightSelectedPanel();
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            currentIndex = (currentIndex - 1 + panels.Count) % panels.Count;
-            HighlightSelectedPanel();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return)) 
-        {
-            ActivateSelectedPanel();
-        }
+        //Debug.Log("Pointer Down detected");
+
+        // Escalar a un valor fijo al presionar
+        rectTransform.localScale = new Vector3(
+            normalScale.x * selectedScale,
+            normalScale.y * selectedScale,
+            1f
+        );
     }
 
-    void HighlightSelectedPanel()
+    public void OnPointerUp(PointerEventData eventData)
     {
-        for (int i = 0; i < panels.Count; i++)
-        {
-            if (i == currentIndex)
-            {
-                panels[i].localScale = Vector3.one * selectedScale;
-            }
-            else
-            {
-                panels[i].localScale = Vector3.one * normalScale;
-            }
-        }
+        //Debug.Log("Pointer Up detected");
+
+        // Volver al tamaño normal al soltar
+        rectTransform.localScale = new Vector3(normalScale.x, normalScale.y, 1f);
     }
 
-    void ActivateSelectedPanel()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        string selectedName = panels[currentIndex].gameObject.name;
+        //Debug.Log("Pointer Click detected");
 
-        if (selectedName == "MenuButton") 
+        string selectedName = gameObject.name;
+
+        if (selectedName == "MenuButton")
         {
-            SceneManager.LoadScene("MainMenu"); 
+            SceneManager.LoadScene("MainMenu");
         }
-        
-        Debug.Log("Activado: " + selectedName);
+        else if (selectedName == "PlayAgainButton")
+        {
+            // Reload the current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        //Debug.Log("Activado: " + selectedName);
     }
 }
