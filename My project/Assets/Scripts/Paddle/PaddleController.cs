@@ -21,8 +21,11 @@ public class PaddleController : MonoBehaviour
     private float yPosition;
     private float zPosition;
 
-    private float minXPosition = -16.42f;
-    private float maxXPosition = 20f;
+    private float minXPositionSmall = -18f;
+    private float maxXPositionSmall = 18f;
+
+    private float minXPositionBig = -15f;
+    private float maxXPositionBig = 15f;
 
     public int initialBlockCount = 0;
     public float percentageBlocksDestroyed = 0;
@@ -279,7 +282,9 @@ public class PaddleController : MonoBehaviour
         }
 
         float newX = transform.position.x + moveInput * moveSpeed * Time.deltaTime;
-        float clampedX = Mathf.Clamp(newX, minXPosition, maxXPosition);
+        float clampedX;
+        if(!isBig) clampedX = Mathf.Clamp(newX, minXPositionSmall, maxXPositionSmall);
+        else clampedX = Mathf.Clamp(newX, minXPositionBig, maxXPositionBig);
 
         transform.position = new Vector3(clampedX, yPosition, zPosition);
     }
