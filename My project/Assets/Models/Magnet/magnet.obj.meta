@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db359a69376c83f4c834369fe266d9d0
+guid: e10e7dea17a3c5840914782049915c89
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: W01_ChikuwaBlock
-    second: {fileID: 2100000, guid: 64b27a16c8331da499efd3fa9fd308a1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ink_mt
-    second: {fileID: 2100000, guid: 05b46512e5802434a8fa3ab3abaa10b2, type: 2}
+      name: magnet
+    second: {fileID: 2100000, guid: ab05751d6c893554a9bd0e99fe1ea9c8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

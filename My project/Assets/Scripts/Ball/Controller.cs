@@ -359,15 +359,17 @@ public class Controller : MonoBehaviour
             {
                 if (hit.CompareTag("Block"))
                 {
-                    scoreDisplay.AddPoints(pointsPerBlock);
                     BlockBehaviour blockBehaviour = hit.GetComponent<BlockBehaviour>();
-                    if (blockBehaviour != null)
+                    if (blockBehaviour != null && !blockBehaviour.isBeingDestroyed)
                     {
+                        scoreDisplay.AddPoints(pointsPerBlock);
                         blockBehaviour.DestroyByShell();
                     }
-                    else
+                    else if (blockBehaviour == null)
                     {
+                        // Si no tiene BlockBehaviour, destrúyelo normalmente y suma puntos solo una vez
                         Destroy(hit.gameObject);
+                        scoreDisplay.AddPoints(pointsPerBlock);
                     }
                 }
             }

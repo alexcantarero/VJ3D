@@ -21,7 +21,7 @@ public class BlockBehaviour : MonoBehaviour
     private PaddleController pC;
     private Controller c;
 
-    private bool isBeingDestroyed = false;
+    public bool isBeingDestroyed = false;
 
     void Start()
     {
