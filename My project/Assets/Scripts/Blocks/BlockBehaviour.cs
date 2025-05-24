@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +42,7 @@ public class BlockBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Shell") || collision.gameObject.CompareTag("BulletBill"))
         {
-            //Animación de destrucción
+            //AnimaciÃ³n de destrucciÃ³n
             if(collision.gameObject.CompareTag("BulletBill"))
             {
                 Destroy(collision.gameObject);
@@ -54,10 +54,11 @@ public class BlockBehaviour : MonoBehaviour
 
     public void DestroyByShell()
     {
-        if (isBeingDestroyed) return; // Evita múltiples ejecuciones
+        if (isBeingDestroyed) return; // Evita mÃºltiples ejecuciones
         isBeingDestroyed = true;
+        CameraShake.Instance.Shake(); // â† AquÃ­
 
-        // Lógica de powerups y estrella para modo fuego
+        // LÃ³gica de powerups y estrella para modo fuego
         if (pC.percentageBlocksDestroyed >= 95 && !gm.starSpawned)
         {
             spawnStar();
