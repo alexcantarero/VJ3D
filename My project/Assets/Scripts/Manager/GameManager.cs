@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool isPaused = false;
 
     private int activeBalls = 1;
+    private int totalBlocks;
 
     void Start()
     {
@@ -37,6 +38,22 @@ public class GameManager : MonoBehaviour
         if (activeBalls <= 0)
         {
             GameOver();
+        }
+    }
+    public void RegisterBlock()
+    {
+        totalBlocks++;
+        Debug.Log("Total blocks: " + totalBlocks);
+    }
+
+    public void UnregisterBlock()
+    {
+        totalBlocks--;
+        Debug.Log("Total blocks: " + totalBlocks);
+
+        if (totalBlocks <= 0)
+        {
+            WinGame();
         }
     }
 

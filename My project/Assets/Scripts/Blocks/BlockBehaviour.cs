@@ -30,6 +30,7 @@ public class BlockBehaviour : MonoBehaviour
 
         GameObject gameManager = GameObject.Find("GameManager");
         gm = gameManager.GetComponent<GameManager>();
+        gm?.RegisterBlock();
 
 
         GameObject shell = GameObject.FindGameObjectWithTag("Shell"); //Coge cualquier shell
@@ -100,6 +101,8 @@ public class BlockBehaviour : MonoBehaviour
                 }
             }
         }
+
+        gm?.UnregisterBlock();
         Destroy(gameObject, 0.1f);
     }
     void spawnPowerupSeta()

@@ -265,7 +265,7 @@ public class PaddleController : MonoBehaviour
     void FinishGame()
     {
         Debug.Log("¡Juego terminado!");
-        Time.timeScale = 0f; // Pausar el juego
+        FindObjectOfType<GameManager>().WinGame();
     }
 
 
@@ -313,7 +313,6 @@ public class PaddleController : MonoBehaviour
         if (shells.Length == 0) Time.timeScale = 0f; //Pausar juego si no hay conchas
 
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
-        if (blocks.Length == 0) FinishGame();
         percentageBlocksDestroyed = (initialBlockCount - blocks.Length) / (float)initialBlockCount * 100f;
 
     }

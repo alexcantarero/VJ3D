@@ -20,13 +20,13 @@ public class ScoreDisplay : MonoBehaviour
         scoreText.text = score.ToString();
         Debug.Log("Puntos sumados: " + points + ", nuevo puntaje: " + score);
 
-        if (score > highScore)
-        {
+        //if (score > highScore)
+        //{
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
             PlayerPrefs.Save(); // Opcional, para asegurarte que se guarde inmediatamente
             Debug.Log("Nuevo récord: " + highScore);
-        }
+        //}
     }
 
     public int GetHighScore()
