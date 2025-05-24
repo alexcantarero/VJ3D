@@ -7,6 +7,7 @@ public class ScoreDisplay : MonoBehaviour
     public int score = 0;
 
     private int highScore = 0;
+    private bool newHighScore = false;
 
     void Start()
     {
@@ -20,13 +21,14 @@ public class ScoreDisplay : MonoBehaviour
         scoreText.text = score.ToString();
         Debug.Log("Puntos sumados: " + points + ", nuevo puntaje: " + score);
 
-        //if (score > highScore)
-        //{
+        if (score > highScore)
+        {
+            newHighScore = true;
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
             PlayerPrefs.Save(); // Opcional, para asegurarte que se guarde inmediatamente
             Debug.Log("Nuevo récord: " + highScore);
-        //}
+        }
     }
 
     public int GetHighScore()
@@ -36,7 +38,7 @@ public class ScoreDisplay : MonoBehaviour
 
     public bool IsNewHighScore()
     {
-        return score >= highScore;
+        return newHighScore;
     }
 
 }

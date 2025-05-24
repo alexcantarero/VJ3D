@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public ScoreDisplay scoreDisplay;
-    public GameObject panel;
+    public GameObject HighScoreUI;
 
     public GameObject MenuPausa;
     public GameObject WinMenu;
@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour
     public void RegisterBall()
     {
         activeBalls++;
-        Debug.Log("Active balls: " + activeBalls);
+        //Debug.Log("Active balls: " + activeBalls);
     }
 
     public void UnregisterBall()
     {
         activeBalls--;
 
-        Debug.Log("Active balls: " + activeBalls);
+        //Debug.Log("Active balls: " + activeBalls);
 
         if (activeBalls <= 0)
         {
@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour
     public void RegisterBlock()
     {
         totalBlocks++;
-        Debug.Log("Total blocks: " + totalBlocks);
+        //Debug.Log("Total blocks: " + totalBlocks);
     }
 
     public void UnregisterBlock()
     {
         totalBlocks--;
-        Debug.Log("Total blocks: " + totalBlocks);
+        //Debug.Log("Total blocks: " + totalBlocks);
 
         if (totalBlocks <= 0)
         {
@@ -57,24 +57,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void checkHighScore()
     {
         Debug.Log("Game Over!");
 
         if (scoreDisplay.IsNewHighScore())
         {
-            if (panel != null)
+            if (HighScoreUI != null)
             {
-                panel.SetActive(true);
-                Debug.Log("High score panel activated.");
+                HighScoreUI.SetActive(true);
+                //Debug.Log("High score HighScoreUI activated.");
             }
             else
             {
-                Debug.LogWarning("High score panel not found.");
+                Debug.LogWarning("High score HighScoreUI not found.");
             }
         }
-        LooseGame();
     }
+
+    
 
     public void PauseGame()
     {
@@ -88,8 +89,9 @@ public class GameManager : MonoBehaviour
         MenuPausa.SetActive(false);
     }
 
-    public void LooseGame()
+    public void GameOver()
     {
+        checkHighScore();
         Debug.Log("Loose Game!");
         LooseMenu.SetActive(true);
         Time.timeScale = 0;
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        checkHighScore();
         Debug.Log("Win Game!");
         WinMenu.SetActive(true);
         Time.timeScale = 0;
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q) && !LooseMenu.activeSelf)
         {
-            LooseGame();
+            GameOver();
         }
         if (Input.GetKeyDown(KeyCode.W) && !WinMenu.activeSelf)
         {
