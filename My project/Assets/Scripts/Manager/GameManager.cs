@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject WinMenu;
     public GameObject LooseMenu;
 
+    public GameObject invisibleWall; // GodMode
+    private bool isGodModeActive = false; 
+
     public bool starSpawned = false;
     public bool isPaused = false;
 
@@ -21,6 +24,11 @@ public class GameManager : MonoBehaviour
 
         if (scoreDisplay == null)
             scoreDisplay = FindObjectOfType<ScoreDisplay>();
+
+        if (invisibleWall != null)
+        {
+            invisibleWall.SetActive(false);
+        }
     }
 
     public void RegisterBall()
@@ -49,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void UnregisterBlock()
     {
         totalBlocks--;
-        //Debug.Log("Total blocks: " + totalBlocks);
+        Debug.Log("Total blocks: " + totalBlocks);
 
         if (totalBlocks <= 0)
         {
@@ -120,6 +128,31 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !WinMenu.activeSelf)
         {
             WinGame();
+        }
+
+        if (invisibleWall != null)
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                isGodModeActive = !isGodModeActive;
+                Debug.Log("God Mode " + (isGodModeActive ? "activated" : "deactivated"));
+            }
+
+            if (isGodModeActive)
+            {
+                invisibleWall.SetActive(isGodModeActive);
+            }
+            else
+            {
+                if (invisibleWall != null)
+                {
+                    invisibleWall.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Invisible wall not assigned in GameManager.");
         }
     }
 }

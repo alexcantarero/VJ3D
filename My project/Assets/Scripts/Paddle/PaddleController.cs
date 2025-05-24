@@ -29,6 +29,7 @@ public class PaddleController : MonoBehaviour
 
     public int initialBlockCount = 0;
     public float percentageBlocksDestroyed = 0;
+    public ScoreDisplay scoreDisplay; 
 
 
     void Start()
@@ -56,54 +57,64 @@ public class PaddleController : MonoBehaviour
         if (other.gameObject.tag == "TripleShroom")
         {
             Debug.Log("TripleShroom");
+            scoreDisplay.AddPoints(300);
             SpawnTwoShells(other.gameObject);
         }
         else if (other.gameObject.tag == "FireFlower")
         {
             Debug.Log("FireFlower");
+            scoreDisplay.AddPoints(900);
             TurnShellRed();
         }
         else if (other.gameObject.tag == "IceFlower")
         { 
             Debug.Log("IceFlower");
+            scoreDisplay.AddPoints(200);
             TurnShellGreen();
         }
         else if (other.gameObject.tag == "MegaMushroom")
         {
             Debug.Log("MegaMushroom");
+            scoreDisplay.AddPoints(500);
             AugmentPaddleX();
 
         }
         else if (other.gameObject.tag == "MiniMushroom")
         {
             Debug.Log("MiniMushroom");
+            scoreDisplay.AddPoints(700);
             if (isBig) ShrinkPaddleX();
         }
         else if (other.gameObject.tag == "BulletBill")
         {
             Debug.Log("BulletBill");
+            scoreDisplay.AddPoints(300);
             StartCoroutine(ShootBulletBill());
 
         }
         else if (other.gameObject.tag == "MagnetShroom")
         {
             Debug.Log("MagnetShroom");
+            scoreDisplay.AddPoints(1200);
             StickyPaddle();
 
         }
         else if (other.gameObject.tag == "+Clock")
         {
             Debug.Log("+Clock");
+            scoreDisplay.AddPoints(500);
             SpeedUpShells();
         }
         else if (other.gameObject.tag == "-Clock")
         {
             Debug.Log("-Clock");
+            scoreDisplay.AddPoints(500);
             SlowShells();
         }
         else if (other.gameObject.tag == "Star")
         {
             Debug.Log("Star");
+            scoreDisplay.AddPoints(1000);
             FinishGame();
         }
 
@@ -132,34 +143,6 @@ public class PaddleController : MonoBehaviour
 
         GameObject newShell1 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
         GameObject newShell2 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
-
-        Controller originalController = shellInPlay.GetComponent<Controller>();
-        bool godModeActive = originalController != null && originalController.IsGodModeEnabled();
-
-        Collider sharedPaddle = originalController.paddleCollider;
-        GameObject sharedWall = originalController.invisibleWall;
-
-        Controller controller1 = newShell1.GetComponent<Controller>();
-        FindObjectOfType<GameManager>().RegisterBall();
-        Controller controller2 = newShell2.GetComponent<Controller>();
-        FindObjectOfType<GameManager>().RegisterBall();
-
-
-        if (controller1 != null)
-        {
-            controller1.paddleCollider = sharedPaddle;
-            controller1.invisibleWall = sharedWall;
-
-            if (godModeActive) controller1.ToggleGodMode(true);
-        }
-
-        if (controller2 != null)
-        {
-            controller2.paddleCollider = sharedPaddle;
-            controller2.invisibleWall = sharedWall;
-
-            if (godModeActive) controller2.ToggleGodMode(true);
-        }
     }
 
     void TurnShellRed()

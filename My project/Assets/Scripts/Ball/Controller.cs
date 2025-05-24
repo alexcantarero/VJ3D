@@ -29,9 +29,7 @@ public class Controller : MonoBehaviour
 
     private SphereCollider sC; // Collider de la esfera
 
-    private bool isGodModeActive = false; // Variable que controla el God Mode
     public Collider paddleCollider; // Colisionador de la paleta
-    public GameObject invisibleWall; // Pared invisible
 
     public ScoreDisplay scoreDisplay; // Asigna esto en el Inspector
     public int pointsPerBlock = 100;
@@ -48,7 +46,6 @@ public class Controller : MonoBehaviour
             Debug.LogError("No se encontró el objeto con la etiqueta " + paddleTag);
         }
         else Debug.Log(paddleCollider.gameObject.name);
-        invisibleWall = GameObject.Find("invisibleWall");
         scoreDisplay = GameObject.Find("score").GetComponent<ScoreDisplay>();
 
     }
@@ -57,13 +54,6 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         originalMaterial = GetComponent<Renderer>().material;
         sC = GetComponent<SphereCollider>();
-
-
-        // Desactivar la pared invisible al principio
-        if (invisibleWall != null)
-        {
-            invisibleWall.SetActive(false);
-        }
 
         shellBackRenderer = gameObject.GetComponent<MeshRenderer>();
 
@@ -99,7 +89,7 @@ public class Controller : MonoBehaviour
                 return;
             }
         }
-        else if (!isGodModeActive && collision.gameObject.CompareTag(paddleTag))
+        else if (collision.gameObject.CompareTag(paddleTag))
         {
             PaddleController paddle = collision.gameObject.GetComponent<PaddleController>();
             if (paddle != null && paddle.sticky)
@@ -139,67 +129,6 @@ public class Controller : MonoBehaviour
             scoreDisplay.AddPoints(pointsPerBlock);
             Destroy(other.gameObject);
         }
-    }
-
-    public void ToggleGodMode(bool isActive)
-    {
-
-        Collider[] ballColliders = GetComponentsInChildren<Collider>();
-        Collider[] paddleColliders = paddleCollider.GetComponentsInChildren<Collider>();
-
-        if (isActive)
-        {
-            // Desactivar la colisión de la paleta
-            if (paddleCollider != null)
-            {
-                foreach (var ballCol in ballColliders)
-                {
-                    foreach (var padCol in paddleColliders)
-                    {
-                        Physics.IgnoreCollision(ballCol, padCol, true);
-                    }
-                }
-            }
-
-            // Activar la pared invisible
-            if (invisibleWall != null)
-            {
-                invisibleWall.SetActive(true); // Activar la pared invisible para que las pelotas colisionen con ella
-            }
-        }
-        else
-        {
-            // Restaurar las colisiones
-            if (paddleCollider != null)
-            {
-                foreach (var ballCol in ballColliders)
-                {
-                    foreach (var padCol in paddleColliders)
-                    {
-                        Physics.IgnoreCollision(ballCol, padCol, false);
-                    }
-                }
-            }
-
-            // Desactivar la pared invisible
-            if (invisibleWall != null)
-            {
-                invisibleWall.SetActive(false); // Desactivar la pared invisible
-            }
-        }
-    }
-
-    public void EnableGodMode()
-    {
-        isGodModeActive = true;
-        ToggleGodMode(true);
-        Debug.Log("God Mode enabled on: " + gameObject.name);
-
-    }
-
-    public bool IsGodModeEnabled()
-    {
-        return isGodModeActive;
     }
 
     public void ActivateFireMode()
@@ -302,13 +231,6 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        // Toggle God Mode cuando se presiona la tecla 'G'
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            isGodModeActive = !isGodModeActive; // Alternar el estado del God Mode
-            ToggleGodMode(isGodModeActive);
-        }
-
         transform.Rotate(Vector3.up, rotatingSpeed * Time.deltaTime);
 
         if (Mathf.Abs(rb.velocity.magnitude - speed) > 0.01f)
@@ -363,6 +285,7 @@ public class Controller : MonoBehaviour
                     if (blockBehaviour != null && !blockBehaviour.isBeingDestroyed)
                     {
                         scoreDisplay.AddPoints(pointsPerBlock);
+                        Debug.Log("FixedUpdater");
                         blockBehaviour.DestroyByShell();
                     }
                     else if (blockBehaviour == null)

@@ -8298,6 +8298,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
+  scoreDisplay: {fileID: 782801914}
 --- !u!65 &881489623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13216,6 +13217,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
+  scoreDisplay: {fileID: 782801914}
 --- !u!4 &1452371967
 Transform:
   m_ObjectHideFlags: 0
@@ -15697,6 +15699,7 @@ MonoBehaviour:
   MenuPausa: {fileID: 664695397}
   WinMenu: {fileID: 1466401694}
   LooseMenu: {fileID: 822454732}
+  invisibleWall: {fileID: 50194257}
   starSpawned: 0
   isPaused: 0
 --- !u!4 &1787100120
@@ -17665,6 +17668,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
+  scoreDisplay: {fileID: 0}
 --- !u!65 &1971058147
 BoxCollider:
   m_ObjectHideFlags: 0
