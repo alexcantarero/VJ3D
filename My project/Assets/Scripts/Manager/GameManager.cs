@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool starSpawned = false;
     public bool isPaused = false;
 
+    private int activeBalls = 1;
 
     void Start()
     {
@@ -19,6 +20,24 @@ public class GameManager : MonoBehaviour
 
         if (scoreDisplay == null)
             scoreDisplay = FindObjectOfType<ScoreDisplay>();
+    }
+
+    public void RegisterBall()
+    {
+        activeBalls++;
+        Debug.Log("Active balls: " + activeBalls);
+    }
+
+    public void UnregisterBall()
+    {
+        activeBalls--;
+
+        Debug.Log("Active balls: " + activeBalls);
+
+        if (activeBalls <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void GameOver()

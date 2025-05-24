@@ -140,7 +140,10 @@ public class PaddleController : MonoBehaviour
         GameObject sharedWall = originalController.invisibleWall;
 
         Controller controller1 = newShell1.GetComponent<Controller>();
+        FindObjectOfType<GameManager>().RegisterBall();
         Controller controller2 = newShell2.GetComponent<Controller>();
+        FindObjectOfType<GameManager>().RegisterBall();
+
 
         if (controller1 != null)
         {

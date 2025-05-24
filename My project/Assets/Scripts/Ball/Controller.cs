@@ -345,7 +345,7 @@ public class Controller : MonoBehaviour
         if (!stuck) rb.velocity = rb.velocity.normalized * speed;
         if (transform.position.z < -18.0f)
         {
-            FindObjectOfType<GameManager>().GameOver();
+            FindObjectOfType<GameManager>().UnregisterBall();
             Destroy(gameObject);
         }
         if (isFireMode)
