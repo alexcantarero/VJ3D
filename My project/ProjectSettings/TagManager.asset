@@ -20,6 +20,7 @@ TagManager:
   - -Clock
   - Star
   - IceFlower
+  - Ground
   layers:
   - Default
   - TransparentFX
