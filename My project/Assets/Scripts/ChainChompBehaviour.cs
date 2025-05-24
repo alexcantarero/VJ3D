@@ -29,7 +29,8 @@ public class ChainChompBehaviour : MonoBehaviour
             }
         }
         else if (collision.gameObject.CompareTag("Ground"))
-        { 
+        {
+            animator.applyRootMotion = true; 
             animator.SetBool("isGrounded", true);
         }
     }

@@ -9,6 +9,9 @@ public class PaddleController : MonoBehaviour
     public GameObject billPrefab;
     public GameObject magnet;
 
+    public ParticleSystem leftExpl;
+    public ParticleSystem rightExpl;
+
     public GameObject Lcannon;
     public GameObject Rcannon;
 
@@ -216,6 +219,9 @@ public class PaddleController : MonoBehaviour
             // Dispara dos balas
             Instantiate(billPrefab, LBillPoint.transform.position, Quaternion.identity);
             Instantiate(billPrefab, RBillPoint.transform.position, Quaternion.identity);
+
+            leftExpl.Play();
+            rightExpl.Play();
 
             if (i < 2) // Espera solo después de las dos primeras tandas
                 yield return new WaitForSeconds(2f);
