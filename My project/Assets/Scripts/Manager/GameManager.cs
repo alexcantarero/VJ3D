@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void UnregisterBlock()
     {
         totalBlocks--;
-        Debug.Log("Total blocks: " + totalBlocks);
+        //Debug.Log("Total blocks: " + totalBlocks);
 
         if (totalBlocks <= 0)
         {
@@ -67,8 +67,6 @@ public class GameManager : MonoBehaviour
 
     public void checkHighScore()
     {
-        Debug.Log("Game Over!");
-
         if (scoreDisplay.IsNewHighScore())
         {
             if (HighScoreUI != null)
@@ -82,8 +80,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    
 
     public void PauseGame()
     {
@@ -101,31 +97,37 @@ public class GameManager : MonoBehaviour
     {
         checkHighScore();
         Debug.Log("Loose Game!");
-        LooseMenu.SetActive(true);
         Time.timeScale = 0;
+        LooseMenu.SetActive(true);
     }
 
     public void WinGame()
     {
         checkHighScore();
         Debug.Log("Win Game!");
-        WinMenu.SetActive(true);
         Time.timeScale = 0;
+        WinMenu.SetActive(true);
+    }
+
+    private bool checkAvailableKeys()
+    {
+        return !LooseMenu.activeSelf && !WinMenu.activeSelf && !MenuPausa.activeSelf;
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) 
+        if (Input.GetKeyDown(KeyCode.P) && !LooseMenu.activeSelf && !WinMenu.activeSelf) 
         {
             isPaused = !isPaused;
-            if(!isPaused) PauseGame();
+            Debug.Log("isPaused: " + (isPaused ? "1" : "0"));
+            if (isPaused) PauseGame();
             else ResumeGame();
         }
-        if (Input.GetKeyDown(KeyCode.Q) && !LooseMenu.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Q) && checkAvailableKeys())
         {
             GameOver();
         }
-        if (Input.GetKeyDown(KeyCode.W) && !WinMenu.activeSelf)
+        if (Input.GetKeyDown(KeyCode.W) && checkAvailableKeys())
         {
             WinGame();
         }
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.G))
             {
                 isGodModeActive = !isGodModeActive;
-                Debug.Log("God Mode " + (isGodModeActive ? "activated" : "deactivated"));
+                //Debug.Log("God Mode " + (isGodModeActive ? "activated" : "deactivated"));
             }
 
             if (isGodModeActive)

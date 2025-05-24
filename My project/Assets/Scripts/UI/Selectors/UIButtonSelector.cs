@@ -74,7 +74,7 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         {
             SceneManager.LoadScene("LevelsMenu");
         }
-        else if (selectedName == "InstructionsButton")
+        else if (selectedName == "InstructionsButton") //
         {
             SceneManager.LoadScene("Instructions");
         }
