@@ -8289,6 +8289,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   shellPrefab: {fileID: 747681957243736196, guid: 7076ddda963380748b7b282e1ee39542, type: 3}
   billPrefab: {fileID: 7791730994217425512, guid: 025688e367f365d41934ee9878738362, type: 3}
+  magnet: {fileID: 1200666202}
   Lcannon: {fileID: 728444821}
   Rcannon: {fileID: 103842651}
   LBillPoint: {fileID: 4795127}
@@ -8318,8 +8319,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.188427, y: 4.554154, z: 0.17135811}
-  m_Center: {x: -0.29796696, y: -1.1637232, z: 0.12651443}
+  m_Size: {x: 9.188427, y: 4.554154, z: 1.870245}
+  m_Center: {x: -0.29796696, y: -1.1637232, z: -0.722929}
 --- !u!4 &881489624
 Transform:
   m_ObjectHideFlags: 0
@@ -11064,7 +11065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e10e7dea17a3c5840914782049915c89, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11224,6 +11225,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
+--- !u!1 &1200666202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e10e7dea17a3c5840914782049915c89, type: 3}
+  m_PrefabInstance: {fileID: 1181636723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1209353184
 GameObject:
   m_ObjectHideFlags: 0
@@ -13208,6 +13214,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   shellPrefab: {fileID: 747681957243736196, guid: 7076ddda963380748b7b282e1ee39542, type: 3}
   billPrefab: {fileID: 7791730994217425512, guid: 025688e367f365d41934ee9878738362, type: 3}
+  magnet: {fileID: 0}
   Lcannon: {fileID: 728444821}
   Rcannon: {fileID: 103842651}
   LBillPoint: {fileID: 4795127}
@@ -17659,6 +17666,7 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   shellPrefab: {fileID: 747681957243736196, guid: 7076ddda963380748b7b282e1ee39542, type: 3}
   billPrefab: {fileID: 7791730994217425512, guid: 025688e367f365d41934ee9878738362, type: 3}
+  magnet: {fileID: 0}
   Lcannon: {fileID: 728444821}
   Rcannon: {fileID: 103842651}
   LBillPoint: {fileID: 4795127}
