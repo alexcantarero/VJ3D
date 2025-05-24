@@ -7,12 +7,15 @@ public class PaddleController : MonoBehaviour
     public Camera mainCamera;
     public GameObject shellPrefab; // Prefab de la concha
     public GameObject billPrefab;
+    public GameObject magnet;
 
     public GameObject Lcannon;
     public GameObject Rcannon;
 
     public GameObject LBillPoint;
     public GameObject RBillPoint;
+
+    private BoxCollider playerCollider;
 
     public bool tripled = false;
     public bool sticky = false;
@@ -49,6 +52,11 @@ public class PaddleController : MonoBehaviour
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
         initialBlockCount = blocks.Length;
 
+        playerCollider = GetComponent<BoxCollider>();
+        if(playerCollider == null)
+        {
+            Debug.LogError("No BoxCollider found on the object. Please ensure the paddle has a BoxCollider component.");
+        }
 
     }
 
@@ -154,7 +162,7 @@ public class PaddleController : MonoBehaviour
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
         foreach (Controller shell in shells)
         {
-            shell.ActivateFireMode(); // Activar el modo "Fire" durante 3 segundos
+            shell.ActivateFireMode();
         }
     }
 
@@ -163,7 +171,7 @@ public class PaddleController : MonoBehaviour
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activasç
         foreach (Controller shell in shells)
         {
-            shell.DeactivateFireMode(); // Activar el modo "Ice" durante 3 segundos
+            shell.DeactivateFireMode();
         }
 
     }
@@ -177,6 +185,8 @@ public class PaddleController : MonoBehaviour
             paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y * 2.2f, paddle.transform.localScale.z);
             Lcannon.transform.position = new Vector3(Lcannon.transform.position.x + 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
             Rcannon.transform.position = new Vector3(Rcannon.transform.position.x - 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+            playerCollider.size = new Vector3(playerCollider.size.x * 2, playerCollider.size.y, playerCollider.size.z);
+            playerCollider.center = new Vector3(playerCollider.center.x * 2 / 2, playerCollider.center.y, playerCollider.center.z);
 
         }
 
@@ -192,6 +202,8 @@ public class PaddleController : MonoBehaviour
             paddle.transform.localScale = new Vector3(paddle.transform.localScale.x, paddle.transform.localScale.y / 2.2f, paddle.transform.localScale.z);
             Lcannon.transform.position = new Vector3(Lcannon.transform.position.x - 2.81f, Lcannon.transform.position.y, Lcannon.transform.position.z);
             Rcannon.transform.position = new Vector3(Rcannon.transform.position.x + 3.8f, Rcannon.transform.position.y, Rcannon.transform.position.z);
+            playerCollider.size = new Vector3(playerCollider.size.x / 2, playerCollider.size.y, playerCollider.size.z);
+            playerCollider.center = new Vector3(playerCollider.center.x / 2, playerCollider.center.y, playerCollider.center.z);
 
         }
 
@@ -219,6 +231,7 @@ public class PaddleController : MonoBehaviour
             shell.stuck = true; // Cambia la variable stuck a true
         }
         sticky = true;
+        magnet.SetActive(true);
 
     }
 

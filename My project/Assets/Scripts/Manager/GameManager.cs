@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour
     public void RegisterBall()
     {
         activeBalls++;
-        Debug.Log("Active balls: " + activeBalls);
+        //Debug.Log("Active balls: " + activeBalls);
     }
 
     public void UnregisterBall()
     {
         activeBalls--;
 
-        Debug.Log("Active balls: " + activeBalls);
+        //Debug.Log("Active balls: " + activeBalls);
 
         if (activeBalls <= 0)
         {
