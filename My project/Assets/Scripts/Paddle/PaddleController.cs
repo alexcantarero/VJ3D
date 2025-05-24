@@ -142,7 +142,11 @@ public class PaddleController : MonoBehaviour
         Vector3 shellPositionInPlay = shellInPlay.transform.position;
 
         GameObject newShell1 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+        FindObjectOfType<GameManager>().RegisterBall();
+
         GameObject newShell2 = Instantiate(shellPrefab, shellPositionInPlay, Quaternion.identity);
+        FindObjectOfType<GameManager>().RegisterBall();
+
     }
 
     void TurnShellRed()
