@@ -1380,21 +1380,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 15.575951, y: 55.02696, z: 13.281954}
   m_Center: {x: -0.297967, y: -1.8312327, z: 6.445536}
---- !u!114 &192032097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192032094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b66f0b9b3795f4e9de68e7b048a6a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceForce: 10
-  visualRecoilDistance: 0.2
-  visualRecoilSpeed: 5
 --- !u!4 &194002197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
@@ -8342,6 +8327,7 @@ GameObject:
   - component: {fileID: 881489624}
   - component: {fileID: 881489623}
   - component: {fileID: 881489622}
+  - component: {fileID: 881489625}
   m_Layer: 0
   m_Name: Player
   m_TagString: Paddle
@@ -8420,6 +8406,21 @@ Transform:
   - {fileID: 1221124380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881489625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881489621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b66f0b9b3795f4e9de68e7b048a6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceForce: 10
+  visualRecoilDistance: 0.2
+  visualRecoilSpeed: 5
 --- !u!4 &881708229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: 78738ff03de0f6b41a7b8f35e55457ba, type: 3}
@@ -18717,9 +18718,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db359a69376c83f4c834369fe266d9d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 192032096}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db359a69376c83f4c834369fe266d9d0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 192032097}
   m_SourcePrefab: {fileID: 100100000, guid: db359a69376c83f4c834369fe266d9d0, type: 3}
 --- !u!1 &2062991697
 GameObject:
