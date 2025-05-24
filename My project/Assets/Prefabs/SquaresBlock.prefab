@@ -175,3 +175,5 @@ MonoBehaviour:
   PlusClockPrefab: {fileID: 2424096538433123289, guid: a3dccd3d6baf1974ca5f60eee301fbe5, type: 3}
   MinusClockPrefab: {fileID: 782031980877882091, guid: 282b25e5954df2046a06a0dc16863fa0, type: 3}
   StarPrefab: {fileID: 7344930017002654201, guid: b3767b141fe735a4db2ed64424d8df0a, type: 3}
+  explosionPrefab: {fileID: 2363636176995450926, guid: 6b62b7c7c23d1954889c3709c3d0c578, type: 3}
+  isBeingDestroyed: 0

@@ -18,6 +18,8 @@ public class BlockBehaviour : MonoBehaviour
     public GameObject MinusClockPrefab;
     public GameObject StarPrefab;
 
+    public ParticleSystem explosionPrefab;
+
     private PaddleController pC;
     private Controller c;
 
@@ -45,6 +47,7 @@ public class BlockBehaviour : MonoBehaviour
             //Animación de destrucción
             if(collision.gameObject.CompareTag("BulletBill"))
             {
+
                 Destroy(collision.gameObject);
             }
             DestroyByShell();
@@ -56,7 +59,7 @@ public class BlockBehaviour : MonoBehaviour
     {
         if (isBeingDestroyed) return; // Evita múltiples ejecuciones
         isBeingDestroyed = true;
-        CameraShake.Instance.Shake(); // ← Aquí
+        CameraShake.Instance.Shake();
 
         // Lógica de powerups y estrella para modo fuego
         if (pC.percentageBlocksDestroyed >= 95 && !gm.starSpawned)
@@ -104,7 +107,9 @@ public class BlockBehaviour : MonoBehaviour
         }
 
         gm?.UnregisterBlock();
-        Destroy(gameObject, 0.1f);
+        destroyAnim(); // Reproduce la animación de explosión
+        Destroy(gameObject);
+
     }
     void spawnPowerupSeta()
     {
@@ -238,6 +243,20 @@ public class BlockBehaviour : MonoBehaviour
         else
         {
             Debug.LogError("Star no se ha asignado.");
+        }
+    }
+
+    void destroyAnim()
+    {
+        if (explosionPrefab != null)
+        {
+            ParticleSystem explosionInstance = Instantiate(
+                explosionPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+            Debug.Log("explosioninstanciada");
+            explosionInstance.Play();
         }
     }
 

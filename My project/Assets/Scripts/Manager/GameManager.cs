@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Invisible wall not assigned in GameManager.");
         }
-        Debug.Log("Active balls: " + activeBalls);
+        //Debug.Log("Active balls: " + activeBalls);
 
     }
 }
