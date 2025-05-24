@@ -38,6 +38,7 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerClick(PointerEventData eventData)
     {
         //Debug.Log("Pointer Click detected");
+        Time.timeScale = 1f;
 
         string selectedName = gameObject.name;
 
