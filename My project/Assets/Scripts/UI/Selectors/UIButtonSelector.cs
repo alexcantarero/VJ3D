@@ -82,7 +82,7 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         {
             SceneManager.LoadScene("Options");
         }
-        else if (selectedName == "CreditsButton") //
+        else if (selectedName == "CreditsButton") 
         {
             SceneManager.LoadScene("Credits");
         }
