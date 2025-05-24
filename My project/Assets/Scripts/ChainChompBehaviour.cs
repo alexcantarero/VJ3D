@@ -9,6 +9,8 @@ public class ChainChompBehaviour : MonoBehaviour
 
     private Animator animator;
 
+    public ParticleSystem dieEffect;
+
 
     void Start()
     {
@@ -21,11 +23,12 @@ public class ChainChompBehaviour : MonoBehaviour
         {
             // Assuming the player has a method to handle being hit
             life--;
+            dieEffect.Play();
             Debug.Log("ChainChomp got hit");
             if (life <= 0)
             {
                 Debug.Log("ChainChomp defeated");
-                Destroy(gameObject);
+                StartCoroutine(DieWithEffect());
             }
         }
         else if (collision.gameObject.CompareTag("Ground"))
@@ -33,6 +36,18 @@ public class ChainChompBehaviour : MonoBehaviour
             animator.applyRootMotion = true; 
             animator.SetBool("isGrounded", true);
         }
+    }
+
+    private IEnumerator DieWithEffect()
+    {
+        if (dieEffect != null)
+        {
+            dieEffect.transform.parent = null;
+            dieEffect.Play();
+            yield return new WaitForSeconds(dieEffect.main.duration);
+            //Destroy(dieEffect.gameObject); // Destruye el sistema de partículas después
+        }
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
