@@ -65,7 +65,7 @@ public class MouseCameraOrbit : MonoBehaviour
             autoRotateTime = 0f;
             Time.timeScale = 0f; // Sigue pausado, animación corre con unscaledDeltaTime
         }
-        Debug.Log("Current Distance: " + currentDistance);
+        //Debug.Log("Current Distance: " + currentDistance);
         if (isAutoRotating && target)
         {
             autoRotateTime += Time.unscaledDeltaTime / 2;

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("High score panel not found.");
             }
         }
+        LooseGame();
     }
 
     public void PauseGame()
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
         MenuPausa.SetActive(true);
     }
 
-    public void ResumeGame()
+    public void ResumeGame() //Despausar el juego
     {
         Time.timeScale = 1;
         MenuPausa.SetActive(false);
