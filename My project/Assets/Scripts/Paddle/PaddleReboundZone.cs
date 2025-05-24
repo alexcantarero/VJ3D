@@ -9,20 +9,30 @@ public class PaddleReboundZone : MonoBehaviour
     private Vector3 originalLocalPosition;
     private bool isRecoiling = false;
 
+    private Transform paddleVisual;
+
     void Start()
     {
-        originalLocalPosition = transform.localPosition;
+        Transform found = transform.Find("Paddle");
+        if (found != null)
+        {
+            paddleVisual = found;
+            originalLocalPosition = paddleVisual.localPosition;
+        }
+        else
+        {
+            Debug.LogError("No se encontró el objeto hijo llamado 'Paddle'. Asegúrate de que exista y esté correctamente nombrado.");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Shell"))
         {
-            // NO modificar velocidad, solo animar
-            if (!isRecoiling)
-                StartCoroutine(RecoilAnimation());
+            Debug.Log("Colisión detectada con Shell en PaddleReboundZone");
 
-            //Debug.Log("Solo animación de retroceso, sin alterar física.");
+            if (!isRecoiling && paddleVisual != null)
+                StartCoroutine(RecoilAnimation());
         }
     }
 
@@ -32,24 +42,27 @@ public class PaddleReboundZone : MonoBehaviour
         float elapsed = 0f;
         Vector3 targetPosition = originalLocalPosition - transform.forward * visualRecoilDistance;
 
-        // Ir hacia atrás
+        // Movimiento hacia atrás
         while (elapsed < 1f)
         {
-            transform.localPosition = Vector3.Lerp(originalLocalPosition, targetPosition, elapsed);
+            float t = Mathf.SmoothStep(0f, 1f, elapsed);
+            paddleVisual.localPosition = Vector3.Lerp(originalLocalPosition, targetPosition, t);
             elapsed += Time.deltaTime * visualRecoilSpeed;
             yield return null;
         }
 
         elapsed = 0f;
-        // Volver a posición original
+
+        // Movimiento hacia adelante
         while (elapsed < 1f)
         {
-            transform.localPosition = Vector3.Lerp(targetPosition, originalLocalPosition, elapsed);
+            float t = Mathf.SmoothStep(0f, 1f, elapsed);
+            paddleVisual.localPosition = Vector3.Lerp(targetPosition, originalLocalPosition, t);
             elapsed += Time.deltaTime * visualRecoilSpeed;
             yield return null;
         }
 
-        transform.localPosition = originalLocalPosition;
+        paddleVisual.localPosition = originalLocalPosition;
         isRecoiling = false;
     }
 }
