@@ -338,7 +338,7 @@ RectTransform:
   m_GameObject: {fileID: 13686629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4.1566, y: 4.1566, z: 2.0783}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1430009122}
@@ -5606,15 +5606,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656940910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -18.799992}
-  m_LocalScale: {x: 50, y: 50, z: 0.27177998}
+  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalScale: {x: 71.78102, y: 71.78102, z: 0.39017287}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1430009122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -40}
+  m_AnchoredPosition: {x: 89.900024, y: -57.200012}
   m_SizeDelta: {x: 1.14, y: 1.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &656940912
@@ -7023,7 +7023,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782801912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.90003}
+  m_LocalPosition: {x: 0, y: 0, z: 2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7031,7 +7031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -41.399994}
+  m_AnchoredPosition: {x: 239.20001, y: -75.79999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782801914
@@ -7095,8 +7095,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7131,7 +7131,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -2.0619392, z: -166.08806, w: 0}
+  m_margin: {x: 0, y: -38.912395, z: -166.08806, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -21021,7 +21021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969807527872215153, guid: 186addae4c15aa24b956dce0b80ef454, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6504104372992927522, guid: 186addae4c15aa24b956dce0b80ef454, type: 3}
       propertyPath: m_LocalPosition.x

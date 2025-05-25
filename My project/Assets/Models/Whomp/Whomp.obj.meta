@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 59bca42b0a645bf478282ab8af840982
+guid: 0cda28cc7d4e92048a15171bc96ed01e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shell_back
-    second: {fileID: 2100000, guid: 068715c22c32f5547898624d234b6927, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shell_front
-    second: {fileID: 2100000, guid: c446dbf27cb6eb84fba6fd832ac05915, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Shell_rim
-    second: {fileID: 2100000, guid: 255d5b2ba8f78d24d860780585a2ac18, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Skin
-    second: {fileID: 2100000, guid: 454695250b473ea4dafdceb5d7394051, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
