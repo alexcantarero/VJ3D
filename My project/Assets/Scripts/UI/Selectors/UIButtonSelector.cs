@@ -93,10 +93,9 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         }
         else if (selectedName == "NextLevButton")
         {
-            // Load the next level in the build settings
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            // Load the next level in the build settings
             int nextSceneIndex = currentSceneIndex + 1;
-            // Check if the next scene index is within bounds
             if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
             {
                 SceneManager.LoadScene(nextSceneIndex);
