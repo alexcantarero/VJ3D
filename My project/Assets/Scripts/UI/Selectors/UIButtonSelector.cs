@@ -83,13 +83,36 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         {
             SceneManager.LoadScene("Options");
         }
-        else if (selectedName == "CreditsButton") 
+        else if (selectedName == "CreditsButton")
         {
             SceneManager.LoadScene("Credits");
         }
-        else if (selectedName == "BackButton") 
+        else if (selectedName == "BackButton")
         {
             SceneManager.LoadScene("MainMenu");
+        }
+        else if (selectedName == "NextLevButton")
+        {
+            // Load the next level in the build settings
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = currentSceneIndex + 1;
+            // Check if the next scene index is within bounds
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(nextSceneIndex);
+            }
+            else
+            {
+                Debug.LogWarning("No more levels available to load.");
+            }
+        }
+        else if (selectedName == "ExitButton")
+        {
+            Application.Quit();
+        }
+        else
+        {
+            Debug.LogWarning("Button not recognized: " + selectedName);
         }
     }
 }
