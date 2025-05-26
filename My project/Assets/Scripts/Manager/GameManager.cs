@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private int activeBalls = 1;
     private int totalBlocks;
+    private bool EnemyDefeated = false;
 
     void Start()
     {
@@ -59,8 +60,18 @@ public class GameManager : MonoBehaviour
         totalBlocks--;
         //Debug.Log("Total blocks: " + totalBlocks);
 
-        if (totalBlocks <= 0)
+        if (totalBlocks <= 0 && EnemyDefeated)
         {
+            WinGame();
+        }
+    }
+
+    public void EnemyDead()
+    {
+        if (!EnemyDefeated && totalBlocks <= 0)
+        {
+            EnemyDefeated = true;
+            Debug.Log("Enemy defeated!");
             WinGame();
         }
     }
