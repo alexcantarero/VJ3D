@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PowerUpHopperCap_Mat_v
-    second: {fileID: 2100000, guid: ba065c2a90edaa842947a6348c72ee0b, type: 2}
+    second: {fileID: 2100000, guid: 0d8013ee1ccd673428e3e346c70a3cd5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

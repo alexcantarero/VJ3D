@@ -69,7 +69,7 @@ public class BlockBehaviour : MonoBehaviour
         }
         else
         {
-            int valor = Random.Range(0, 5);
+            int valor = Random.Range(0, 9);
             if (valor == 3)
             {
                 int powerup = Random.Range(0, 6);
