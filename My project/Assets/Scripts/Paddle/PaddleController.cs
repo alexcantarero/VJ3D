@@ -37,6 +37,8 @@ public class PaddleController : MonoBehaviour
     public float percentageBlocksDestroyed = 0;
     public ScoreDisplay scoreDisplay; 
 
+    public AudioManager audioManager;
+
 
     void Start()
     {
@@ -61,10 +63,13 @@ public class PaddleController : MonoBehaviour
             Debug.LogError("No BoxCollider found on the object. Please ensure the paddle has a BoxCollider component.");
         }
 
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+
     }
 
     void OnTriggerEnter(Collider other)
     {
+        audioManager.PlaySFX(audioManager.powerupSFX);
         if (other.gameObject.tag == "TripleShroom")
         {
             Debug.Log("TripleShroom");
@@ -217,6 +222,7 @@ public class PaddleController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             // Dispara dos balas
+            audioManager.PlaySFX(audioManager.bulletBillSFX);
             Instantiate(billPrefab, LBillPoint.transform.position, Quaternion.identity);
             Instantiate(billPrefab, RBillPoint.transform.position, Quaternion.identity);
 

@@ -25,6 +25,8 @@ public class BlockBehaviour : MonoBehaviour
 
     public bool isBeingDestroyed = false;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         GameObject player = GameObject.Find("Player");
@@ -38,6 +40,8 @@ public class BlockBehaviour : MonoBehaviour
         GameObject shell = GameObject.FindGameObjectWithTag("Shell"); //Coge cualquier shell
 
         c = player.GetComponent<Controller>();
+
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
     
     void OnCollisionEnter(Collision collision)
@@ -57,6 +61,7 @@ public class BlockBehaviour : MonoBehaviour
 
     public void DestroyByShell()
     {
+        //audioManager.PlaySFX(audioManager.blockBreakSFX);
         if (isBeingDestroyed) return; // Evita múltiples ejecuciones
         isBeingDestroyed = true;
         CameraShake.Instance.Shake();

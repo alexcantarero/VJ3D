@@ -38,6 +38,10 @@ public class Controller : MonoBehaviour
     private List<Collider> ignoredBlockColliders = new List<Collider>();
 
 
+
+    public AudioManager audioManager; 
+
+
     private void Awake()
     {
         paddleCollider = GameObject.FindGameObjectWithTag(paddleTag).GetComponent<Collider>();
@@ -47,6 +51,8 @@ public class Controller : MonoBehaviour
         }
         else Debug.Log(paddleCollider.gameObject.name);
         scoreDisplay = GameObject.Find("score").GetComponent<ScoreDisplay>();
+
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
     }
     void Start()
@@ -74,7 +80,10 @@ public class Controller : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Block")) {
+            audioManager.PlaySFX(audioManager.shellBumpSFX);
+
             scoreDisplay.AddPoints(pointsPerBlock);
             //Debug.Log("puntos sumados!");
 
@@ -114,6 +123,7 @@ public class Controller : MonoBehaviour
         }
         else
         {
+            audioManager.PlaySFX(audioManager.shellBumpSFX);
             Vector3 incomingVelocity = rb.velocity;
             Vector3 normal = collision.contacts[0].normal;
             Vector3 reflectedVelocity = Vector3.Reflect(incomingVelocity, normal);
