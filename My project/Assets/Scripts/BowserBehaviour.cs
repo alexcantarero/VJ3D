@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChainChompBehaviour : MonoBehaviour
+public class BowserBehaviour : MonoBehaviour
 {
 
     int life = 3;
