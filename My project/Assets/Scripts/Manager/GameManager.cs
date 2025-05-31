@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private int totalBlocks;
     private bool EnemyDefeated = false;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         //MenuPausa = GameObject.Find("MenuPausa");
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             invisibleWall.SetActive(false);
         }
+
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     public void RegisterBall()
@@ -95,17 +99,20 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        audioManager.PauseMusic();
         MenuPausa.SetActive(true);
     }
 
     public void ResumeGame() //Despausar el juego
     {
         Time.timeScale = 1;
+        audioManager.ResumeMusic();
         MenuPausa.SetActive(false);
     }
 
     public void GameOver()
     {
+        audioManager.PlayMusic(audioManager.gameOverMusic);
         checkHighScore();
         Debug.Log("Loose Game!");
         Time.timeScale = 0;
@@ -114,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        audioManager.PlayMusic(audioManager.gameWinMusic);
         checkHighScore();
         Debug.Log("Win Game!");
         Time.timeScale = 0;

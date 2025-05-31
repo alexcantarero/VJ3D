@@ -22,6 +22,7 @@ TagManager:
   - IceFlower
   - Ground
   - AudioManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
