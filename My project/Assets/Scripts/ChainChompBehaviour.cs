@@ -10,11 +10,19 @@ public class ChainChompBehaviour : MonoBehaviour
     private Animator animator;
 
     public ParticleSystem dieEffect;
+    private Rigidbody rb;
+
+    public AudioManager audioManager;
+    private float chompTimer = 0f;
+    private float chompInterval = 5f; // Intervalo entre sonidos de mordisco
+
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,6 +67,12 @@ public class ChainChompBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        chompTimer += Time.deltaTime;
+        if (chompTimer >= chompInterval) { 
         
+            audioManager.PlaySFX(audioManager.chainChompSFX);
+            rb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
+            chompTimer = 0f;
+        }
     }
 }
