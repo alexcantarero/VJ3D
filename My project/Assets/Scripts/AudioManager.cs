@@ -17,8 +17,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip blockBreakSFX;
     public AudioClip powerupSFX;
     public AudioClip bulletBillSFX;
-
     public AudioClip chainChompSFX;
+    public AudioClip thwompSFX;
+
 
 
     void Start()

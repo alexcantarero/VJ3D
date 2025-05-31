@@ -14,10 +14,16 @@ public class ThwompBehaviour : MonoBehaviour
 
     public ParticleSystem dieEffect;
 
+    public AudioManager audioManager;
+    private float whompTimer = 0f;
+    private float whompInterval = 7f; 
+
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,18 +58,20 @@ public class ThwompBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Jump()
-    {
-        grounded = false;
-        rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
-        //yield return new WaitForSeconds(3f);
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(grounded) Jump();
+        {
+            whompTimer += Time.deltaTime;
+            if (whompTimer >= whompInterval)
+            {
+
+                audioManager.PlaySFX(audioManager.thwompSFX);
+                rb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
+                whompTimer = 0f;
+            }
+        }
 
     }
 }

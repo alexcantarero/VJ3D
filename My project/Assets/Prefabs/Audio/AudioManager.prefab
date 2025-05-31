@@ -305,4 +305,11 @@ MonoBehaviour:
   sfx: {fileID: 740791329599077786}
   music: {fileID: 1138107740056259171}
   mainMenuMusic: {fileID: 8300000, guid: 0945fb60331d88546a05b10cd05567c3, type: 3}
+  gameOverMusic: {fileID: 8300000, guid: 91454952d2c369d4bbf33c544c9343ff, type: 3}
+  gameWinMusic: {fileID: 8300000, guid: 48dc8d800807c3442a792ba264f5f723, type: 3}
   pressButtonSFX: {fileID: 8300000, guid: e1a6a0ca467fc2b4cba9869fc70e1887, type: 3}
+  shellBumpSFX: {fileID: 8300000, guid: a434654a2fc5b3d4bab0305397cef764, type: 3}
+  blockBreakSFX: {fileID: 8300000, guid: d637552c22be6584cb916b34d7545d0c, type: 3}
+  powerupSFX: {fileID: 8300000, guid: 48491ceba303477459aa9cb179a36c57, type: 3}
+  bulletBillSFX: {fileID: 8300000, guid: 9f12e65ca29a8074f934f265ef5050dc, type: 3}
+  chainChompSFX: {fileID: 8300000, guid: 4a843b7766c59574e9c03058a900b4c1, type: 3}
