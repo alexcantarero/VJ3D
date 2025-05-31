@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4841667005078357156}
   - component: {fileID: -5500621210142324473}
   m_Layer: 3
-  m_Name: LavaBlock
+  m_Name: NoDelete
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
