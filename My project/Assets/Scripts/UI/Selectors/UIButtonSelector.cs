@@ -9,17 +9,31 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     private RectTransform rectTransform;
 
+
+    // ------- Menús --------
+
+    public GameObject mainMenu;
+    public GameObject credits;
+    public GameObject options;
+    public GameObject instructions;
+    public GameObject selectLevel;
+
+    AudioManager audioManager;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.localScale = new Vector3(normalScale.x, normalScale.y, 1f);
+
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene. Please ensure it is present.");
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Pointer Down detected");
-
-        // Escalar a un valor fijo al presionar
         rectTransform.localScale = new Vector3(
             normalScale.x * selectedScale,
             normalScale.y * selectedScale,
@@ -29,27 +43,20 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        //Debug.Log("Pointer Up detected");
 
-        // Volver al tamaño normal al soltar
         rectTransform.localScale = new Vector3(normalScale.x, normalScale.y, 1f);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //Debug.Log("Pointer Click detected");
+        audioManager.PlaySFX(audioManager.pressButtonSFX);
         Time.timeScale = 1f;
 
         string selectedName = gameObject.name;
 
         if (selectedName == "MenuButton")
         {
-            SceneManager.LoadScene("LevelsMenu");
-        }
-        else if (selectedName == "PlayAgainButton")
-        {
-            // Reload the current scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadMenu(mainMenu);
         }
         else if (selectedName == "Lev1")
         {
@@ -73,37 +80,23 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         }
         else if (selectedName == "PlayButton")
         {
-            SceneManager.LoadScene("LevelsMenu");
+            LoadMenu(selectLevel);
         }
         else if (selectedName == "InstructionsButton") //
         {
-            SceneManager.LoadScene("Instructions");
+            LoadMenu(instructions);
         }
         else if (selectedName == "OptionsButton") //
         {
-            SceneManager.LoadScene("Options");
+            LoadMenu(options);
         }
         else if (selectedName == "CreditsButton")
         {
-            SceneManager.LoadScene("Credits");
+            LoadMenu(credits);
         }
         else if (selectedName == "BackButton")
         {
-            SceneManager.LoadScene("MainMenu");
-        }
-        else if (selectedName == "NextLevButton")
-        {
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            // Load the next level in the build settings
-            int nextSceneIndex = currentSceneIndex + 1;
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                SceneManager.LoadScene(nextSceneIndex);
-            }
-            else
-            {
-                Debug.LogWarning("No more levels available to load.");
-            }
+            LoadMenu(mainMenu);
         }
         else if (selectedName == "ExitButton")
         {
@@ -112,6 +105,23 @@ public class UIButtonSelector : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         else
         {
             Debug.LogWarning("Button not recognized: " + selectedName);
+        }
+    }
+
+    private void LoadMenu(GameObject menu)
+    {
+        mainMenu.SetActive(false);
+        credits.SetActive(false);
+        options.SetActive(false);
+        instructions.SetActive(false);
+        selectLevel.SetActive(false);
+        if (menu != null)
+        {
+            menu.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Menu GameObject is null.");
         }
     }
 }
