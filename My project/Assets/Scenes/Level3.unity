@@ -8163,6 +8163,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedScale: 1.2
   normalScale: {x: 2.24, y: 1}
+  mainMenu: {fileID: 0}
+  credits: {fileID: 0}
+  options: {fileID: 0}
+  instructions: {fileID: 0}
+  selectLevel: {fileID: 0}
 --- !u!4 &532066125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: e75376095c3c3ce4481762a4dff1845e, type: 3}
@@ -15060,6 +15065,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedScale: 1.2
   normalScale: {x: 2.24, y: 1}
+  mainMenu: {fileID: 0}
+  credits: {fileID: 0}
+  options: {fileID: 0}
+  instructions: {fileID: 0}
+  selectLevel: {fileID: 0}
 --- !u!1001 &845531304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15699,6 +15709,7 @@ MonoBehaviour:
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
   scoreDisplay: {fileID: 782801914}
+  audioManager: {fileID: 0}
 --- !u!65 &881489623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15773,7 +15784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &893351357
 Grid:
   m_ObjectHideFlags: 0
@@ -16261,6 +16272,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedScale: 1.2
   normalScale: {x: 2.24, y: 1}
+  mainMenu: {fileID: 0}
+  credits: {fileID: 0}
+  options: {fileID: 0}
+  instructions: {fileID: 0}
+  selectLevel: {fileID: 0}
 --- !u!4 &931527317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7127470038879437014, guid: e99346a3b721c9640a72bd821f0e7cde, type: 3}
@@ -19590,7 +19606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetToFix: {fileID: 8275145615523159852}
-  desiredLocalPosition: {x: -2.5, y: -5.5, z: 0}
+  desiredLocalPosition: {x: 0, y: 0, z: 0}
   desiredLocalRotation: {x: 180, y: 0, z: 180}
 --- !u!4 &1198832497 stripped
 Transform:
@@ -23589,6 +23605,7 @@ MonoBehaviour:
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
   scoreDisplay: {fileID: 782801914}
+  audioManager: {fileID: 0}
 --- !u!4 &1452371967
 Transform:
   m_ObjectHideFlags: 0
@@ -29814,6 +29831,7 @@ MonoBehaviour:
   invisibleWall: {fileID: 50194257}
   starSpawned: 0
   isPaused: 0
+  audioManager: {fileID: 0}
 --- !u!4 &1787100120
 Transform:
   m_ObjectHideFlags: 0
@@ -32985,6 +33003,7 @@ MonoBehaviour:
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
   scoreDisplay: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!65 &1971058147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34243,6 +34262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieEffect: {fileID: 1812302634}
+  audioManager: {fileID: 0}
 --- !u!4 &2038256932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3789547000869037348, guid: e75376095c3c3ce4481762a4dff1845e, type: 3}
@@ -35866,6 +35886,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedScale: 1.2
   normalScale: {x: 2.24, y: 1}
+  mainMenu: {fileID: 0}
+  credits: {fileID: 0}
+  options: {fileID: 0}
+  instructions: {fileID: 0}
+  selectLevel: {fileID: 0}
 --- !u!4 &2081625040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7127470038879437014, guid: e99346a3b721c9640a72bd821f0e7cde, type: 3}
