@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1454523273955718898}
   - component: {fileID: 6226284418309734056}
   - component: {fileID: 5163584039796874994}
-  - component: {fileID: 2027313113164646491}
+  - component: {fileID: 1774827714517058010}
   m_Layer: 0
   m_Name: BulletBillPowerup
   m_TagString: BulletBill
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   speed: 8
---- !u!114 &2027313113164646491
+--- !u!114 &1774827714517058010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

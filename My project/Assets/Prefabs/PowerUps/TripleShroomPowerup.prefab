@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1827953694147963176}
   - component: {fileID: 8692653443650325983}
   - component: {fileID: 3494198809905272899}
-  - component: {fileID: 3595114200885134984}
+  - component: {fileID: 6797616379241916351}
   m_Layer: 0
   m_Name: TripleShroomPowerup
   m_TagString: TripleShroom
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   speed: 8
---- !u!114 &3595114200885134984
+--- !u!114 &6797616379241916351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
