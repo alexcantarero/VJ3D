@@ -255,7 +255,8 @@ public class PaddleController : MonoBehaviour
             if (!shell.isSpedup)
             {
                 shell.speed *= 1.3f; // Aumenta la velocidad de las conchas un 30%
-                shell.isSpedup = true;
+                if (!shell.isSlowDown) shell.isSpedup = true;
+                else shell.isSlowDown = false;
             }
         }
     }
