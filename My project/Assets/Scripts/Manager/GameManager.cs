@@ -66,13 +66,19 @@ public class GameManager : MonoBehaviour
 
         if (totalBlocks <= 0 && EnemyDefeated)
         {
+            Debug.Log("EnemyDefeated bool in GameMAnager:" + EnemyDefeated);
             WinGame();
         }
     }
 
     public void EnemyDead()
     {
-        if (!EnemyDefeated && totalBlocks <= 0)
+        if (!EnemyDefeated)
+        {
+            EnemyDefeated = true;
+        }
+
+        if (EnemyDefeated && totalBlocks <= 0)
         {
             EnemyDefeated = true;
             Debug.Log("Enemy defeated!");
