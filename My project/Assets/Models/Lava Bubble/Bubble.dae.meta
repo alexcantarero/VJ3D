@@ -3,7 +3,17 @@ guid: 179d544e9f7cd8a40a62858fc835961f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BubbleBodyMat
+    second: {fileID: 2100000, guid: 587aa7a0bb1c6514faf16c3d4dc15fd5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BubbleEyeMat
+    second: {fileID: 2100000, guid: d1c6aa953797d20448bb061afe51238c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
