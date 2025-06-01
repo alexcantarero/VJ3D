@@ -55,6 +55,13 @@ public class KingBooBehaviour : MonoBehaviour
             yield return new WaitForSeconds(dieEffect.main.duration);
             //Destroy(dieEffect.gameObject); // Destruye el sistema de partículas después
         }
+
+        GameManager gm;
+        GameObject gameManager = GameObject.Find("GameManager");
+        gm = gameManager.GetComponent<GameManager>();
+        gm?.EnemyDead();
+
+
         Destroy(gameObject);
     }
 
