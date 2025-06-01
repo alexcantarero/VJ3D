@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HighScoreDisplay : MonoBehaviour
+public class HighestScore : MonoBehaviour
 {
     public TextMeshProUGUI highScoreText;
     public ScoreDisplay scoreDisplay;
