@@ -7,8 +7,6 @@ public class BowserBehaviour : MonoBehaviour
 
     int life = 3;
 
-    private Animator animator;
-
     public ParticleSystem dieEffect;
     private Rigidbody rb;
 
@@ -20,7 +18,6 @@ public class BowserBehaviour : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody>();
     }
@@ -39,11 +36,7 @@ public class BowserBehaviour : MonoBehaviour
                 StartCoroutine(DieWithEffect());
             }
         }
-        else if (collision.gameObject.CompareTag("Ground"))
-        {
-            animator.applyRootMotion = true; 
-            animator.SetBool("isGrounded", true);
-        }
+        
     }
 
     private IEnumerator DieWithEffect()

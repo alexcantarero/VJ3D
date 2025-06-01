@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b2ec48d6394797d4998363fd13863d96, type: 2}
     - target: {fileID: 2631330649614769823, guid: d9bc68bf284566444b33c159e9041d7c, type: 3}
       propertyPath: m_Name
-      value: LavaBlock Variant
+      value: VolcanBlock
       objectReference: {fileID: 0}
     - target: {fileID: 3789547000869037348, guid: d9bc68bf284566444b33c159e9041d7c, type: 3}
       propertyPath: m_LocalPosition.x
