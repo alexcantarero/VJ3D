@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject LooseMenu;
 
     public GameObject invisibleWall; // GodMode
+
+    public PaddleController pC;
     private bool isGodModeActive = false; 
 
     public bool starSpawned = false;
@@ -35,6 +37,11 @@ public class GameManager : MonoBehaviour
         }
 
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        pC = GameObject.Find("Player").GetComponent<PaddleController>();
+        if(pC == null)
+        {
+            Debug.LogError("PaddleController not found in GameManager.");
+        }
     }
 
     public void RegisterBall()
@@ -183,7 +190,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Invisible wall not assigned in GameManager.");
         }
 
-       
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SceneManager.LoadScene("Level1");
@@ -196,7 +203,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Level3");
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SceneManager.LoadScene("Level4");
         }
@@ -204,7 +211,42 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Level5");
         }
-        //Debug.Log("Active balls: " + activeBalls);
+        else if (Input.GetKeyDown(KeyCode.L)) 
+        {
+            pC.SpawnTwoShells();
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            pC.TurnShellRed();
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            pC.TurnShellGreen();
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            pC.AugmentPaddleX();
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            pC.ShrinkPaddleX();
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            StartCoroutine(pC.ShootBulletBill());
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            pC.StickyPaddle();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            pC.SpeedUpShells();
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            pC.SlowShells();
+        }
 
     }
 }

@@ -8602,7 +8602,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
-  scoreDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 1467264670}
   audioManager: {fileID: 0}
 --- !u!65 &881489623
 BoxCollider:
@@ -16584,12 +16584,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14bdb47b69d80f4b9033611268b9f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 1467264670}
   HighScoreUI: {fileID: 971490196}
   MenuPausa: {fileID: 912686222}
   WinMenu: {fileID: 1490626856}
   LooseMenu: {fileID: 711206812}
   invisibleWall: {fileID: 50194257}
+  pC: {fileID: 0}
   starSpawned: 0
   isPaused: 0
   audioManager: {fileID: 0}

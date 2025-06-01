@@ -10092,7 +10092,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
-  scoreDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 1542671707}
   audioManager: {fileID: 0}
 --- !u!65 &881489623
 BoxCollider:
@@ -19544,6 +19544,7 @@ MonoBehaviour:
   WinMenu: {fileID: 590677290}
   LooseMenu: {fileID: 1221314382}
   invisibleWall: {fileID: 50194257}
+  pC: {fileID: 0}
   starSpawned: 0
   isPaused: 0
   audioManager: {fileID: 0}

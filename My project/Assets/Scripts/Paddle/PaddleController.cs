@@ -74,7 +74,7 @@ public class PaddleController : MonoBehaviour
         {
             Debug.Log("TripleShroom");
             scoreDisplay.AddPoints(300);
-            SpawnTwoShells(other.gameObject);
+            SpawnTwoShells();
         }
         else if (other.gameObject.tag == "FireFlower")
         {
@@ -137,7 +137,7 @@ public class PaddleController : MonoBehaviour
         Destroy(other.gameObject); // Destruir el powerup
     }
 
-    void SpawnTwoShells(GameObject shell)
+    public void SpawnTwoShells()
     {
         if (shellPrefab == null)
         {
@@ -165,7 +165,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    void TurnShellRed()
+    public void TurnShellRed()
     {
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activas
         foreach (Controller shell in shells)
@@ -174,7 +174,7 @@ public class PaddleController : MonoBehaviour
         }
     }
 
-    void TurnShellGreen()
+    public void TurnShellGreen()
     {
         Controller[] shells = FindObjectsOfType<Controller>(); // Encontrar todas las conchas activasç
         foreach (Controller shell in shells)
@@ -184,7 +184,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    void AugmentPaddleX()
+    public void AugmentPaddleX()
     {
         if (!isBig)
         {
@@ -200,7 +200,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    void ShrinkPaddleX()
+    public void ShrinkPaddleX()
     {
         if (isBig)
         {
@@ -217,7 +217,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    IEnumerator ShootBulletBill()
+    public IEnumerator ShootBulletBill()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -235,7 +235,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    void StickyPaddle()
+    public void StickyPaddle()
     {
 
         foreach (Controller shell in FindObjectsOfType<Controller>())
@@ -247,7 +247,7 @@ public class PaddleController : MonoBehaviour
 
     }
 
-    void SpeedUpShells()
+    public void SpeedUpShells()
     {
         Controller[] shells = FindObjectsOfType<Controller>();
         foreach (Controller shell in shells)
@@ -260,7 +260,7 @@ public class PaddleController : MonoBehaviour
         }
     }
 
-    void SlowShells()
+    public void SlowShells()
     {
         Controller[] shells = FindObjectsOfType<Controller>();
         foreach (Controller shell in shells)
