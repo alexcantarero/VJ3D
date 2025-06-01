@@ -8,11 +8,12 @@ public class BowserBehaviour : MonoBehaviour
     int life = 3;
 
     public ParticleSystem dieEffect;
+    public GameObject flamethrower;
     private Rigidbody rb;
 
     public AudioManager audioManager;
     private float chompTimer = 0f;
-    private float chompInterval = 5f; // Intervalo entre sonidos de mordisco
+    private float chompInterval = 3f; 
 
 
 
@@ -20,6 +21,8 @@ public class BowserBehaviour : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody>();
+        flamethrower.transform.Rotate(0, 0, -117.352f); // Asegúrate de que el lanzallamas esté orientado correctamente
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -61,11 +64,21 @@ public class BowserBehaviour : MonoBehaviour
     void Update()
     {
         chompTimer += Time.deltaTime;
+
         if (chompTimer >= chompInterval) { 
         
-            audioManager.PlaySFX(audioManager.chainChompSFX);
+            audioManager.PlaySFX(audioManager.bowserSFX);
+            StartCoroutine(FireCoroutine());
             rb.AddForce(Vector3.up * 7f, ForceMode.Impulse);
             chompTimer = 0f;
         }
+    }
+
+    IEnumerator FireCoroutine()
+    {
+        Debug.Log("hola");
+        flamethrower.SetActive(true);
+        yield return new WaitForSeconds(2.5f); // Duración del lanzallamas
+        flamethrower.SetActive(false);
     }
 }

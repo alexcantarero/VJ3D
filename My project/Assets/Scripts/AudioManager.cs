@@ -21,8 +21,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip thwompSFX;
     public AudioClip kingBooSFX;
     public AudioClip booSFX;
-
-
+    public AudioClip bowserSFX;
 
     void Start()
     {
