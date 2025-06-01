@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -180,6 +181,28 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Invisible wall not assigned in GameManager.");
+        }
+
+       
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene("Level1");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene("Level2");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SceneManager.LoadScene("Level3");
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SceneManager.LoadScene("Level4");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SceneManager.LoadScene("Level5");
         }
         //Debug.Log("Active balls: " + activeBalls);
 

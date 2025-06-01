@@ -19,7 +19,7 @@ public class HighScoreDisplay : MonoBehaviour
     {
         int currentScore = scoreDisplay.GetCurrentScore();
 
-        if (!hasShownNewHighScore && currentScore > currentHighScore)
+        if (currentScore > currentHighScore)
         {
             highScoreText.text = "NEW HIGH SCORE: " + currentScore;
             hasShownNewHighScore = true;
