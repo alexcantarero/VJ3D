@@ -56,13 +56,13 @@ public class GameManager : MonoBehaviour
     public void RegisterBlock()
     {
         totalBlocks++;
-        //Debug.Log("Total blocks: " + totalBlocks);
+        Debug.Log("Total blocks: " + totalBlocks);
     }
 
     public void UnregisterBlock()
     {
         totalBlocks--;
-        //Debug.Log("Total blocks: " + totalBlocks);
+        Debug.Log("Total blocks: " + totalBlocks);
 
         if (totalBlocks <= 0 && EnemyDefeated)
         {
