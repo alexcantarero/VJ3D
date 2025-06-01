@@ -8602,7 +8602,7 @@ MonoBehaviour:
   isBig: 0
   initialBlockCount: 0
   percentageBlocksDestroyed: 0
-  scoreDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 1467264670}
   audioManager: {fileID: 0}
 --- !u!65 &881489623
 BoxCollider:
