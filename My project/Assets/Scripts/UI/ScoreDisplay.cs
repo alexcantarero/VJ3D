@@ -36,6 +36,11 @@ public class ScoreDisplay : MonoBehaviour
         return highScore;
     }
 
+    public int GetCurrentScore()
+    {
+        return score;
+    }
+
     public bool IsNewHighScore()
     {
         return newHighScore;
